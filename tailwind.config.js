@@ -1,4 +1,5 @@
 const { theme } = require('@sanity/demo/tailwind')
+import fluid, { extract, fontSize, screens } from 'fluid-tailwind'
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -11,13 +12,17 @@ function withOpacity(variableName) {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './intro-template/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: {
+    files: [
+      './app/**/*.{js,ts,jsx,tsx}',
+      './components/**/*.{js,ts,jsx,tsx}',
+      './intro-template/**/*.{js,ts,jsx,tsx}',
+    ],
+    extract,
+  },
   theme: {
-    ...theme,
+    screens, // Tailwind's default screens, in `rem`
+    fontSize,
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
       sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
@@ -25,13 +30,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: withOpacity("--color-primary"),
-        secondary: withOpacity("--color-secondary"),
-      },
-      fontSize: {
-        '4.5xl': ['2.6rem', '2.8rem'],
+        primary: withOpacity('--color-primary'),
+        secondary: withOpacity('--color-secondary'),
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    fluid
+  ],
+  
 }

@@ -16,7 +16,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const { overview = [], showcaseProjects = [] } = data ?? {}
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 ~px-3/6">
       {/* Header */}
       {overview && <Header description={overview} />}
       {/* Showcase projects */}
