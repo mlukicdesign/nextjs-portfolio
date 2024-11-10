@@ -11,7 +11,7 @@ export function Header(props: HeaderProps) {
   return (
     <div className="w-full md:w-4/6">
       {description && (
-        <div className="mt-4 ~text-3xl/5xl md:text-4.5xl">
+        <div className="h-96 pb-8 flex items-end ~text-3xl/7xl  md:text-4.5xl">
           {description.displayText == true && (
             <CustomPortableText value={description.text} />
           )}

@@ -20,6 +20,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Header */}
       {overview && <Header description={overview} />}
       {/* Showcase projects */}
+      {/* Map over projects and parse to ProjectListItem component */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="grid gap-5 grid-cols-1 xl:grid-cols-2">
           {showcaseProjects.map((project, key) => {
