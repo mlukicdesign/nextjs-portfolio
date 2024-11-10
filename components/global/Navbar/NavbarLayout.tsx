@@ -10,6 +10,10 @@ interface NavbarProps {
   title: string | null
   logo: any | null
 }
+
+// Navbar component for the website.
+// Trigger this component with useEffect hook in main layout page to open cool modal. 
+
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const title = props.title ?? ''

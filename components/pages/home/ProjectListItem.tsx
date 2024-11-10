@@ -5,6 +5,8 @@ interface ProjectProps {
   project: ShowcaseProject
 }
 
+// Edit this to create interactive project list component on homepage! 
+
 export function ProjectListItem(props: ProjectProps) {
   const { project } = props
 
@@ -23,6 +25,9 @@ export function ProjectListItem(props: ProjectProps) {
     </div>
   )
 }
+
+
+// Content to be displayed beneath project image. 
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
