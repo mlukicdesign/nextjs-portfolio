@@ -5,6 +5,7 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+import { HomeIntro } from './HomeIntro'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -22,6 +23,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       {overview && <Header description={overview} headerVideo={headerVideo} />}
 
+      <HomeIntro description={overview} />
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
       {showcaseProjects && showcaseProjects.length > 0 && (

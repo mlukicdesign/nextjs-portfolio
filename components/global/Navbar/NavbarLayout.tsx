@@ -64,10 +64,10 @@ export default function Navbar(props: NavbarProps) {
               <Link
                 key={key}
                 target="_blank"
-                className={`text-lg px-3 py-1 text-secondary border-secondary border rounded hover:text-primary hover:bg-secondary md:text-2xl`}
+                className={`text-lg px-3 py-1 text-secondary font-arbeit`}
                 href={menuItem.url!}
               >
-                ↗ {menuItem.title}
+                {menuItem.title}
               </Link>
             )
           })}

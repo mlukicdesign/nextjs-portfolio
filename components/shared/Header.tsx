@@ -12,15 +12,11 @@ export function Header(props: HeaderProps) {
   }
   return (
     <>
-      <div className="w-full h-[700px] relative">
+      <div className="w-full h-screen md:max-h-screen max-h-[600px] relative">
         <div className="w-full h-full flex flex-col justify-end">
-          {description && (
-            <div className="text-9xl">
-              {description.displayText == true && (
-                <CustomPortableText value={description.text} />
-              )}
-            </div>
-          )}
+          <h1 className="text-fluid font-semibold leading-none font-arbeit">
+            MACKENZIE LUKIC
+          </h1>
         </div>
         {/* Gradient overlay */}
 

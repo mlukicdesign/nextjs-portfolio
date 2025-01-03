@@ -24,11 +24,13 @@ module.exports = {
     screens, // Tailwind's default screens, in `rem`
     fontSize,
     // Overriding fontFamily to use @next/font loaded families
-    fontFamily: {
-      sans: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-      // sans: 'var(--font-sans)',
-    },
     extend: {
+      fontFamily: {
+        arbeit: ['Arbeit', 'sans-serif'],
+      },
+      fontSize: {
+        fluid: 'clamp(4rem, 10vw, 20rem)', // Scales between 1rem (16px) and 4rem (64px) based on viewport width
+      },
       colors: {
         primary: withOpacity('--color-primary'),
         secondary: withOpacity('--color-secondary'),
