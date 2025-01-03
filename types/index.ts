@@ -44,6 +44,7 @@ export interface HomePagePayload {
   overview?: any
   showcaseProjects?: ShowcaseProject[]
   title?: string
+  headerVideo?: string
   tags?: string
   customLogo?: Image
   _updatedAt?: string

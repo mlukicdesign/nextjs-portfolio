@@ -36,8 +36,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    fluid
+    // require('@tailwindcss/typography'),
+    fluid,
   ],
-  
 }

@@ -14,11 +14,14 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [] } = data ?? {}
+  const headerVideo = data?.headerVideo
 
   return (
-    <div className="space-y-6 ~px-3/6">
+    <div className="">
       {/* Header */}
-      {overview && <Header description={overview} />}
+
+      {overview && <Header description={overview} headerVideo={headerVideo} />}
+
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
       {showcaseProjects && showcaseProjects.length > 0 && (

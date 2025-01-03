@@ -62,20 +62,20 @@ export async function viewport(): Promise<Viewport> {
   }
 }
 
-
 export default async function IndexRoute({
   children,
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <ReactLenis root options={{ autoRaf: true }}>
       <div className="flex min-h-screen flex-col text-secondary">
-        <Suspense>
-          <Navbar />
-        </Suspense>
-        <div className="mt-16 flex-grow px-4 md:px-5 lg:px-5">
+        <div className="absolute w-full z-[99]">
+          <Suspense>
+            <Navbar />
+          </Suspense>
+        </div>
+        <div className="">
           <Suspense>{children}</Suspense>
         </div>
         <Suspense>
