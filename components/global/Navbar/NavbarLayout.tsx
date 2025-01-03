@@ -12,7 +12,7 @@ interface NavbarProps {
 }
 
 // Navbar component for the website.
-// Trigger this component with useEffect hook in main layout page to open cool modal. 
+// Trigger this component with useEffect hook in main layout page to open cool modal.
 
 export default function Navbar(props: NavbarProps) {
   const { data } = props
@@ -26,12 +26,9 @@ export default function Navbar(props: NavbarProps) {
   const logoImageUrl = customLogo && urlForLogo(customLogo)?.url()
 
   return (
-    <div className="flex flex-wrap justify-between items-center gap-x-5 ~px-12/6">
+    <div className="flex flex-wrap w-full justify-between items-center gap-x-5 ~px-12/6 h-[100px]">
       {customLogo && customLogo ? (
-        <Link
-          href={`/`}
-          className={`h-full text-xl hover:text-secondary md:text-2xl`}
-        >
+        <Link href={`/`} className={`text-xl hover:text-secondary md:text-2xl`}>
           <div className="flex h-6">
             <Image
               alt={title}
@@ -46,7 +43,7 @@ export default function Navbar(props: NavbarProps) {
       ) : (
         <Link
           href={`/`}
-          className={`h-full text-2xl hover:text-secondary md:text-2xl`}
+          className={` text-2xl hover:text-secondary md:text-2xl`}
         >
           {title}
         </Link>
@@ -67,10 +64,10 @@ export default function Navbar(props: NavbarProps) {
               <Link
                 key={key}
                 target="_blank"
-                className={`text-lg px-3 py-1 text-secondary border-secondary border rounded hover:text-primary hover:bg-secondary md:text-2xl`}
+                className={`text-lg px-3 py-1 text-secondary font-arbeit`}
                 href={menuItem.url!}
               >
-                ↗ {menuItem.title}
+                {menuItem.title}
               </Link>
             )
           })}

@@ -19,7 +19,8 @@ export function ProjectPage({
   encodeDataAttribute,
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { year, overview, site, title, content, slug } = data ?? {}
+  //Safely destructures project data (`year`, `overview`, `site`, `title`, `content`, `slug`, `tags`) from the `data` prop, defaulting to an empty object if data is null.
+  const { year, overview, site, title, content, slug, tags = [] } = data ?? {}
 
   // Get a list of showcased projects
   const { showcaseProjects = [] } = moreProjects ?? {}
@@ -41,6 +42,19 @@ export function ProjectPage({
             {title && <div className="text-2xl md:text-4xl">{title}</div>}
             {/* Year */}
             {year && <div className="md:mt-2 text-lg md:text-2xl">{year}</div>}
+            {/* Tags */}
+            {Array.isArray(tags) && (
+              <div className="md:mt-2 text-lg md:text-2xl">
+                {tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="text-white px-3 py-1 rounded-full text-sm font-medium p-2 bg-blue-700 mx-2"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
           <div className="w-full lg:w-2/4">
             {/* Overview */}

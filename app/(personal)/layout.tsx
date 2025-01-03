@@ -1,5 +1,6 @@
 import '@/styles/index.css'
 
+import { ReactLenis, useLenis } from 'lenis/react'
 import type { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
 import { draftMode } from 'next/headers'
@@ -67,12 +68,14 @@ export default async function IndexRoute({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <ReactLenis root options={{ autoRaf: true }}>
       <div className="flex min-h-screen flex-col text-secondary">
-        <Suspense>
-          <Navbar />
-        </Suspense>
-        <div className="mt-16 flex-grow px-4 md:px-5 lg:px-5">
+        <div className="absolute w-full z-[99]">
+          <Suspense>
+            <Navbar />
+          </Suspense>
+        </div>
+        <div className="">
           <Suspense>{children}</Suspense>
         </div>
         <Suspense>
@@ -80,6 +83,6 @@ export default async function IndexRoute({
         </Suspense>
       </div>
       {draftMode().isEnabled && <LiveVisualEditing />}
-    </>
+    </ReactLenis>
   )
 }

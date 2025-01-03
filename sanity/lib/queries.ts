@@ -9,6 +9,7 @@ export const homePageQuery = groq`
       displayText,
     },
     customLogo,
+    headerVideo,
     showcaseProjects[]->{
       _type,
       coverImage{
@@ -20,6 +21,7 @@ export const homePageQuery = groq`
       "slug": slug.current,
       title,
       year,
+      tags,
     },
     title,
   }
@@ -73,6 +75,7 @@ export const projectBySlugQuery = groq`
     coverImage,
     description,
     overview,
+    tags,
     site,
     "slug": slug.current,
     title,

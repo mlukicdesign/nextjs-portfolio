@@ -31,7 +31,7 @@ export interface ShowcaseProject {
   coverImage?: Image
   overview?: PortableTextBlock[]
   slug?: string
-  tags?: string[]
+  tags?: string
   title?: string
   year?: string
   _updatedAt?: string
@@ -44,6 +44,8 @@ export interface HomePagePayload {
   overview?: any
   showcaseProjects?: ShowcaseProject[]
   title?: string
+  headerVideo?: string
+  tags?: string
   customLogo?: Image
   _updatedAt?: string
 }
@@ -58,7 +60,7 @@ export interface ProjectPayload {
     url: string
   }
   slug: string
-  tags?: string[]
+  tags?: string
   title?: string
   content?: Content[]
 }

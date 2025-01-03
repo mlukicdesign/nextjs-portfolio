@@ -17,8 +17,14 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'headerVideo',
+      description: 'Hero Video for the home page',
+      title: 'Header Video',
+      type: 'string',
+    }),
+    defineField({
       name: 'customLogo',
-      description: 
+      description:
         'Upload your custom logo, it will replace your title in the header of your website. Use SVG or PNG with a transparent background.',
       title: 'Custom logo (Optional)',
       type: 'image',
@@ -29,52 +35,93 @@ export default defineType({
         'This text is your description. Used for the introduction paragraph at a Home page and also for the <meta> description tag for SEO.',
       title: 'Introduction text',
       type: 'object',
-      fields:[
+      fields: [
         {
-        name: 'text',
-        type: 'array',
-        of: [
-          // Paragraphs
-          defineArrayMember({
-            lists: [],
-            marks: {
-              annotations: [
-                {
-                  name: 'link',
-                  type: 'object',
-                  title: 'Link',
-                  fields: [
-                    {
-                      name: 'href',
-                      type: 'url',
-                      title: 'Url',
-                    },
-                  ],
-                },
-              ],
-              decorators: [
-                {
-                  title: 'Italic',
-                  value: 'em',
-                },
-                {
-                  title: 'Strong',
-                  value: 'strong',
-                },
-              ],
-            },
-            styles: [],
-            type: 'block',
-          }),
-        ],
-        validation: (rule) => rule.max(155).required(),
+          name: 'text',
+          type: 'array',
+          of: [
+            // Paragraphs
+            defineArrayMember({
+              lists: [],
+              marks: {
+                annotations: [
+                  {
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        name: 'href',
+                        type: 'url',
+                        title: 'Url',
+                      },
+                    ],
+                  },
+                ],
+                decorators: [
+                  {
+                    title: 'Italic',
+                    value: 'em',
+                  },
+                  {
+                    title: 'Strong',
+                    value: 'strong',
+                  },
+                ],
+              },
+              styles: [],
+              type: 'block',
+            }),
+          ],
+          validation: (rule) => rule.max(155).required(),
         },
         {
           title: 'Display this introduction on Home page?',
-          description: 'If you turn in off it still be used for SEO description',
+          description:
+            'If you turn in off it still be used for SEO description',
           name: 'displayText',
           type: 'boolean',
         },
+      ],
+    }),
+    defineField({
+      name: 'introParagraph',
+      title: 'Intro paragraph',
+      description: 'Paragraph for introductory section on homepage',
+      type: 'array',
+      of: [
+        // Paragraphs
+        defineArrayMember({
+          lists: [],
+          marks: {
+            annotations: [
+              {
+                name: 'link',
+                type: 'object',
+                title: 'Link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'Url',
+                  },
+                ],
+              },
+            ],
+            decorators: [
+              {
+                title: 'Italic',
+                value: 'em',
+              },
+              {
+                title: 'Strong',
+                value: 'strong',
+              },
+            ],
+          },
+          styles: [],
+          type: 'block',
+        }),
       ],
     }),
     defineField({

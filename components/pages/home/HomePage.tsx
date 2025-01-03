@@ -5,6 +5,7 @@ import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+import { HomeIntro } from './HomeIntro'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -14,12 +15,17 @@ export interface HomePageProps {
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [] } = data ?? {}
+  const headerVideo = data?.headerVideo
 
   return (
-    <div className="space-y-6 ~px-3/6">
+    <div className="">
       {/* Header */}
-      {overview && <Header description={overview} />}
+
+      {overview && <Header description={overview} headerVideo={headerVideo} />}
+
+      <HomeIntro description={overview} />
       {/* Showcase projects */}
+      {/* Map over projects and parse to ProjectListItem component */}
       {showcaseProjects && showcaseProjects.length > 0 && (
         <div className="grid gap-5 grid-cols-1 xl:grid-cols-2">
           {showcaseProjects.map((project, key) => {
