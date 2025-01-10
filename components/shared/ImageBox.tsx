@@ -48,7 +48,7 @@ export default function ImageBox({
             transition: 'opacity 0.3s linear',
             objectFit: 'cover',
             width: '100%',
-            height: 'auto',
+            height: '100%',
           }}
           alt={alt}
           width={width}
