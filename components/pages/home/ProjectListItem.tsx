@@ -16,7 +16,7 @@ export function ProjectListItem(props: ProjectProps) {
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]"
+          classesWrapper="relative aspect-[5/4]"
         />
       </div>
       <div className="flex">
@@ -30,7 +30,7 @@ export function ProjectListItem(props: ProjectProps) {
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="flex h-[1200px] flex-wrap justify-between mt-2 mb-2 w-full text-lg md:text-2xl flex-stretch">
+    <div className="flex flex-wrap justify-between mt-2 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
       <div className="flex">{project.title}</div>
       {/* Year */}

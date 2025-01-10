@@ -27,9 +27,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="grid gap-5 grid-cols-1 xl:grid-cols-2">
+        <div className="~px-8/16 grid gap-8 md:gap-36 grid-cols-1 xl:grid-cols-2">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
+
+            const index = key + 1
+            const isEven = index % 2 === 0 ? 'md:pt-24 pt-0' : 'pt-0'
+
             if (!href) {
               return null
             }
@@ -37,6 +41,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               <Link
                 key={key}
                 href={href}
+                className={isEven}
                 data-sanity={encodeDataAttribute?.([
                   'showcaseProjects',
                   key,

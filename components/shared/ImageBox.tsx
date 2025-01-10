@@ -36,7 +36,7 @@ export default function ImageBox({
 
   return (
     <div
-      className={`w-full h-full overflow-hidden rounded-[3px] ${classesWrapper}`}
+      className={`w-full h-full border border-ion-950 overflow-hidden rounded-[10px] ${classesWrapper}`}
       data-sanity={props['data-sanity']}
     >
       {imageUrl && (
