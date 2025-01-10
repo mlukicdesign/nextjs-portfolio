@@ -16,7 +16,7 @@ export function ProjectListItem(props: ProjectProps) {
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]"
+          classesWrapper="relative aspect-[5/4]"
         />
       </div>
       <div className="flex">
@@ -30,24 +30,48 @@ export function ProjectListItem(props: ProjectProps) {
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="flex h-[1200px] flex-wrap justify-between mt-2 mb-2 w-full text-lg md:text-2xl flex-stretch">
+    <div className="flex flex-wrap justify-between mt-4 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
-      <div className="flex">{project.title}</div>
+      <div className="flex underline">{project.title}</div>
       {/* Year */}
       <div className="flex">{project.year}</div>
       {/* Year */}
       <div className="flex">
         {/* Tags */}
         {Array.isArray(project.tags) && (
-          <div className="">
-            {project.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="text-white px-3 py-1 rounded-full text-sm font-medium p-2 bg-slate-500 mx-2"
-              >
-                {tag}
-              </span>
-            ))}
+          <div>
+            {project.tags.map((tag, index) => {
+              let tagStyle = ''
+
+              // Switch statement to determine tag style
+              switch (tag) {
+                case 'WordPress':
+                  tagStyle =
+                    'text-[#1986DA] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#00121A] mx-1 border border-slate-900 mx-1'
+                  break
+                case 'PHP':
+                  tagStyle =
+                    'text-[#A259FF] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#10061E] mx-1 border border-slate-900 mx-1'
+                  break
+                case 'Design':
+                  tagStyle =
+                    'text-[#0ACF83] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#011E13] border border-slate-900 mx-1'
+                  break
+                case 'Headless':
+                  tagStyle =
+                    'text-[#FF7262] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#200300] border border-slate-900 mx-1'
+                  break
+                default:
+                  tagStyle =
+                    'text-gray-500 px-6 py-3 rounded-full text-sm font-medium bg-slate-200 mx-1'
+              }
+
+              return (
+                <span key={index} className={tagStyle}>
+                  {tag}
+                </span>
+              )
+            })}
           </div>
         )}
       </div>

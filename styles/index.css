@@ -17,6 +17,14 @@ ol {
   list-style-type: disc;
 }
 
+.fluid-container {
+  @apply ~py-8/32 ~px-8/16;
+}
+
+.fluid-container-x {
+  @apply ~px-8/16;
+}
+
 .radial-gradient {
   background: radial-gradient(
       47.96% 79.31% at 49.97% 50%,

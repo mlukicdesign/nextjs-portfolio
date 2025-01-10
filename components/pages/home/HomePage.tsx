@@ -26,29 +26,43 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <HomeIntro description={overview} />
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
-      {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="grid gap-5 grid-cols-1 xl:grid-cols-2">
-          {showcaseProjects.map((project, key) => {
-            const href = resolveHref(project?._type, project?.slug)
-            if (!href) {
-              return null
-            }
-            return (
-              <Link
-                key={key}
-                href={href}
-                data-sanity={encodeDataAttribute?.([
-                  'showcaseProjects',
-                  key,
-                  'slug',
-                ])}
-              >
-                <ProjectListItem project={project} />
-              </Link>
-            )
-          })}
+
+      <div className="fluid-container-x">
+        <div className="w-full flex justify-end mb-8 xl:mb-0">
+          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 text-arbeit">
+            A Collection <br /> of Recent Works
+          </h2>
         </div>
-      )}
+
+        {showcaseProjects && showcaseProjects.length > 0 && (
+          <div className="grid gap-8 md:gap-36 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0">
+            {showcaseProjects.map((project, key) => {
+              const href = resolveHref(project?._type, project?.slug)
+
+              const index = key + 1
+              const isEven = index % 2 === 0 ? 'md:pt-32 pt-0' : 'pt-0'
+
+              if (!href) {
+                return null
+              }
+              return (
+                <Link
+                  key={key}
+                  href={href}
+                  className={isEven}
+                  data-sanity={encodeDataAttribute?.([
+                    'showcaseProjects',
+                    key,
+                    'slug',
+                  ])}
+                >
+                  <ProjectListItem project={project} />
+                </Link>
+              )
+            })}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

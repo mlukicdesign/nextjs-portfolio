@@ -34,6 +34,11 @@ module.exports = {
       colors: {
         primary: withOpacity('--color-primary'),
         secondary: withOpacity('--color-secondary'),
+        'neutral-grey': '#F0F9FF',
+        'ion-400': '#1ABCFE',
+        'ion-950': '#06304B',
+        'ion-900': '#094D7',
+        'ion-800': '#035C89',
       },
     },
   },

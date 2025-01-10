@@ -12,8 +12,8 @@ export function HomeIntro(props: HeaderProps) {
   }
 
   return (
-    <section className="flex flex-col ~py-8/32 ~px-8/16 gap-16">
-      <div className="~text-4xl/7xl text-pretty font-arbeit indent-12 xl:w-1/2 w-full text-gradient">
+    <section className="flex flex-col ~py-8/32 ~px-8/16 gap-16 xl:min-h-[800px] align-middle">
+      <div className="~text-3xl/6xl text-pretty font-arbeit indent-12 xl:w-1/2 w-full text-gradient">
         {description.displayText == true && (
           <CustomPortableText value={description.text} />
         )}
