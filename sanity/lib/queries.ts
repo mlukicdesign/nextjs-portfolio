@@ -24,6 +24,7 @@ export const homePageQuery = groq`
       tags,
     },
     title,
+    sliderTitle,
   }
 `
 

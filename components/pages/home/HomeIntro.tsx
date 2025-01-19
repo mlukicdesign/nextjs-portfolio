@@ -1,18 +1,18 @@
 import React from 'react'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 
-interface HeaderProps {
+interface IntroProps {
   description?: any
 }
 
-export function HomeIntro(props: HeaderProps) {
+export function HomeIntro(props: IntroProps) {
   const { description } = props
   if (!description) {
     return null
   }
 
   return (
-    <section className="flex flex-col ~py-8/32 ~px-8/16 gap-16 xl:min-h-[800px] align-middle">
+    <section className="flex flex-col ~py-8/32 ~px-8/16 gap-16 xl:min-h-[800px] align-middle bg-void">
       <div className="~text-3xl/6xl text-pretty font-arbeit indent-12 xl:w-1/2 w-full text-gradient">
         {description.displayText == true && (
           <CustomPortableText value={description.text} />

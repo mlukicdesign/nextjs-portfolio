@@ -137,6 +137,12 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'sliderTitle',
+      title: 'Slider Title',
+      description: 'Text above secondary project slider',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

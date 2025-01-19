@@ -6,6 +6,7 @@ import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import { HomeIntro } from './HomeIntro'
+import HomeSlider from './HomeSlider'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -16,18 +17,21 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [] } = data ?? {}
   const headerVideo = data?.headerVideo
+  const sliderTitle = data?.sliderTitle
 
   return (
     <div className="">
       {/* Header */}
 
-      {overview && <Header description={overview} headerVideo={headerVideo} />}
+      {overview && (
+        <Header description={overview} headerVideo={headerVideo} />
+      )}
 
       <HomeIntro description={overview} />
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
 
-      <div className="fluid-container-x">
+      <div className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
           <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 text-arbeit">
             A Collection <br /> of Recent Works
@@ -63,6 +67,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           </div>
         )}
       </div>
+
+      <HomeSlider sliderTitle={sliderTitle} />
     </div>
   )
 }
