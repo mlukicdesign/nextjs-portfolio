@@ -25,6 +25,10 @@ export const homePageQuery = groq`
     },
     title,
     sliderTitle,
+    sliderProjects[]{
+    _key,
+    "url": asset->url
+  }
   }
 `
 

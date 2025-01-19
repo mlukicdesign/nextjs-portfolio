@@ -49,6 +49,7 @@ export interface HomePagePayload {
   customLogo?: Image
   _updatedAt?: string
   sliderTitle?: any
+  sliderProjects?: Image
 }
 
 export interface ProjectPayload {

@@ -6,38 +6,26 @@ import Image from 'next/image'
 
 interface HomeSliderProps {
   sliderTitle?: string
+  sliderProjects?: { _key: string; url: string }[] // Expect array of objects
 }
 
-const sliders = [
-  [
-    { color: '#e3e5e7', src: 'app/projects/Frame 54.jpg' },
-    { color: '#d6d7dc', src: 'app/projects/Frame54.jpg' },
-    { color: '#e3e5e7', src: 'app/projects/Frame 54.jpg' },
-    { color: '#d6d7dc', src: 'app/projects/Frame54.jpg' },
-  ],
-  [
-    { color: '#d4e3ec', src: 'maven.jpg' },
-    { color: '#e5e0e1', src: 'panda.jpg' },
-    { color: '#d7d4cf', src: 'powell.jpg' },
-    { color: '#e1dad6', src: 'wix.jpg' },
-  ],
-]
-
-export default function HomeSlider(props: HomeSliderProps) {
+export default function HomeSlider({
+  sliderTitle,
+  sliderProjects,
+}: HomeSliderProps) {
   const container = useRef(null)
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ['start end', 'end start'],
   })
 
-  const xTransforms = [
-    useTransform(scrollYProgress, [0, 1], [0, 150]),
-    useTransform(scrollYProgress, [0, 1], [0, -150]),
-  ]
+  const xTransform = useTransform(scrollYProgress, [0, 1], [0, 150])
 
-  const { sliderTitle } = props
-  if (!sliderTitle) {
-    return 'missing text'
+  // Handle missing props gracefully
+  if (!sliderTitle || !sliderProjects?.length) {
+    return (
+      <div className="text-center text-gray-500">No projects available.</div>
+    )
   }
 
   return (
@@ -48,30 +36,28 @@ export default function HomeSlider(props: HomeSliderProps) {
       <div className="pb-32 text-center">
         <h2 className="text-gradient text-6xl">{sliderTitle}</h2>
       </div>
-      {sliders.map((slider, index) => (
-        <motion.div
-          key={index}
-          style={{ x: xTransforms[index] }}
-          className="flex relative gap-[3vw] w-[120vw] -left-[10vw]"
-        >
-          {slider.map(({ color, src }, idx) => (
-            <div
-              key={idx}
-              className="w-1/4 h-[20vw] flex items-center justify-center"
-              style={{ backgroundColor: color }}
-            >
-              <div className="relative w-4/5 h-4/5">
-                <Image
-                  fill
-                  alt="Project Image"
-                  src={`/images/${src}`}
-                  className="object-cover"
-                />
-              </div>
+
+      {/* Motion wrapper for sliding effect */}
+      <motion.div
+        style={{ x: xTransform }}
+        className="flex relative gap-[3vw] w-[120vw] -left-[10vw]"
+      >
+        {sliderProjects.map(({ _key, url }) => (
+          <div
+            key={_key}
+            className="w-1/4 h-[20vw] flex items-center justify-center bg-gray-200"
+          >
+            <div className="relative w-4/5 h-4/5">
+              <Image
+                fill
+                alt="Project Image"
+                src={url}
+                className="object-cover"
+              />
             </div>
-          ))}
-        </motion.div>
-      ))}
+          </div>
+        ))}
+      </motion.div>
     </div>
   )
 }

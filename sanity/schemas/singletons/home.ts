@@ -143,6 +143,17 @@ export default defineType({
       description: 'Text above secondary project slider',
       type: 'string',
     }),
+    defineField({
+      name: 'sliderProjects',
+      title: 'Slider Projects',
+      description: 'Add images to be displayed within the carousel component',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+        }),
+      ],
+    }),
   ],
   preview: {
     select: {

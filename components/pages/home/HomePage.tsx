@@ -18,6 +18,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const { overview = [], showcaseProjects = [] } = data ?? {}
   const headerVideo = data?.headerVideo
   const sliderTitle = data?.sliderTitle
+  const sliderProjects = data?.sliderProjects
 
   return (
     <div className="">
@@ -68,7 +69,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         )}
       </div>
 
-      <HomeSlider sliderTitle={sliderTitle} />
+      <HomeSlider sliderTitle={sliderTitle} sliderProjects={sliderProjects} />
     </div>
   )
 }
