@@ -48,6 +48,8 @@ export interface HomePagePayload {
   tags?: string
   customLogo?: Image
   _updatedAt?: string
+  sliderTitle?: any
+  sliderProjects?: Image
 }
 
 export interface ProjectPayload {

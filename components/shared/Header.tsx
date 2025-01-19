@@ -7,9 +7,7 @@ interface HeaderProps {
 
 export function Header(props: HeaderProps) {
   const { description, headerVideo } = props
-  if (!description) {
-    return null
-  }
+
   return (
     <>
       <div className="w-full h-screen md:max-h-screen max-h-[600px] relative">
@@ -28,7 +26,7 @@ export function Header(props: HeaderProps) {
             loop
             muted
             playsInline
-            className="h-full w-full object-cover relative radial-gradient"
+            className="fixed h-full w-full object-cover radial-gradient"
           />
         </div>
       </div>
