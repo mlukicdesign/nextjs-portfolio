@@ -18,7 +18,7 @@ ol {
 }
 
 .fluid-container {
-  @apply ~py-8/32 ~px-8/16;
+  @apply ~py-8/32 ~px-8/16 max-w-[1700px];
 }
 
 .fluid-container-x {
@@ -37,11 +37,10 @@ ol {
 }
 
 .text-gradient {
-  background-image: var(
-    --TEXT-GRADIENT,
-    linear-gradient(90deg, #a4e3fe 0%, #1d3bff 100%)
-  );
+  background-image: linear-gradient(90deg, #a4e3fe 0%, #1d3bff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  display: inline-block;
+  padding-bottom: 20px; /* Adjust as needed */
 }
