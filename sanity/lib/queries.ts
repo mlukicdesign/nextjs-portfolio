@@ -7,6 +7,7 @@ export const homePageQuery = groq`
     overview{
       text,
       displayText,
+      introParagraph,
     },
     customLogo,
     headerVideo,

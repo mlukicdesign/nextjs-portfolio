@@ -33,9 +33,6 @@ function TextBox({ project }: { project: ShowcaseProject }) {
     <div className="flex flex-wrap justify-between mt-4 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
       <div className="flex underline">{project.title}</div>
-      {/* Year */}
-      <div className="flex">{project.year}</div>
-      {/* Year */}
       <div className="flex">
         {/* Tags */}
         {Array.isArray(project.tags) && (

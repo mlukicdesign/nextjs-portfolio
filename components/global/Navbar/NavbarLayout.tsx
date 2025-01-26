@@ -29,11 +29,11 @@ export default function Navbar(props: NavbarProps) {
   const logoImageUrl = customLogo && urlForLogo(customLogo)?.url()
 
   const navAnimation = {
-    hidden: { opacity: 0, y: -25 },
+    hidden: { opacity: 0, y: -40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: 0.05, duration: 0.6, ease: 'easeOut' }, // Staggered delay
+      transition: { delay: 0.5, duration: 0.6, ease: 'easeOut' }, // Staggered delay
     },
   }
 

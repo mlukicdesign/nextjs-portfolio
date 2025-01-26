@@ -24,9 +24,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     <div className="">
       {/* Header */}
 
-      {overview && (
-        <Header description={overview} headerVideo={headerVideo} />
-      )}
+      {overview && <Header headerVideo={headerVideo} />}
 
       <HomeIntro description={overview} />
       {/* Showcase projects */}

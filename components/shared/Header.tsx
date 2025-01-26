@@ -5,12 +5,11 @@ import { motion } from 'framer-motion'
 import { cubicBezier } from 'framer-motion'
 
 interface HeaderProps {
-  description?: any
   headerVideo?: string
 }
 
 export function Header(props: HeaderProps) {
-  const { description, headerVideo } = props
+  const { headerVideo } = props
 
   const svgLetters = [
     'M0 143.774V3.2364H37.7911L78.0469 124.564L117.686 3.2364H155.888V143.774H131.447V31.1418L93.0401 143.774H62.0267L24.6464 31.5462V143.774H0Z',
@@ -29,15 +28,14 @@ export function Header(props: HeaderProps) {
     'M1651.83 73.202C1651.83 30.1307 1679.15 -0.201205 1721.66 0.00100499C1759.66 0.203215 1784.1 21.0311 1788 53.5874H1761.51C1757.4 33.7705 1744.87 20.6267 1722.28 20.6267C1694.75 20.6267 1678.32 42.8701 1678.32 73.202C1678.32 103.736 1694.75 125.979 1722.28 125.979C1744.87 125.979 1758.83 112.836 1761.51 93.0188H1788C1784.1 125.373 1759.66 146.201 1721.66 145.999C1679.15 145.796 1651.83 116.273 1651.83 73.202Z',
   ]
 
-  const easing = cubicBezier(0.35, 0.17, 0.3, 0.86)
+  const easing = cubicBezier(0, 0.55, 0.45, 1)
 
   const letterAnimation = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
+    hidden: { y: 180 },
+    visible: (i) => ({
       y: 0,
-      transition: { delay: 0.5, duration: 0.8, ease: easing }, // Staggered delay
-    },
+      transition: { delay: i * 0.08, duration: 0.8, ease: easing }, // Staggered delay
+    }),
   }
 
   return (
@@ -45,37 +43,27 @@ export function Header(props: HeaderProps) {
       <div className="w-full h-screen md:max-h-screen max-h-[600px] relative">
         <div className="w-full h-full flex flex-col justify-end">
           <div className="">
-            <svg
-              width="full"
-              height="146"
-              viewBox="0 0 1788 146"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {svgLetters.map((path, i) => (
-                <motion.path
-                  d={path}
-                  variants={letterAnimation}
-                  custom={i}
-                  initial="hidden"
-                  animate="visible"
-                  fill="white"
-                />
-              ))}
-              <defs>
-                <linearGradient
-                  id="paint0_linear"
-                  x1="894"
-                  y1="0"
-                  x2="894"
-                  y2="146"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#FFD700" />
-                  <stop offset="1" stopColor="#FFA500" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <div className="h-[146px] relative bottom-8 overflow-hidden">
+              <svg
+                width="full"
+                height="146"
+                viewBox="0 0 1788 146"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {svgLetters.map((path, i) => (
+                  <motion.path
+                    d={path}
+                    key={i}
+                    variants={letterAnimation}
+                    custom={i}
+                    initial="hidden"
+                    animate="visible"
+                    fill="white"
+                  />
+                ))}
+              </svg>
+            </div>
           </div>
         </div>
         {/* Gradient overlay */}
