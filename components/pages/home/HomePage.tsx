@@ -18,7 +18,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const { overview = [], showcaseProjects = [] } = data ?? {}
   const headerVideo = data?.headerVideo
   const sliderTitle = data?.sliderTitle
-  const sliderProjects = data?.sliderProjects
+  const sliderProjects = Array.isArray(data?.sliderProjects)
+    ? data.sliderProjects
+    : undefined
 
   return (
     <div className="">

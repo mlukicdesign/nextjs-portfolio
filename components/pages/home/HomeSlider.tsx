@@ -50,6 +50,7 @@ export default function HomeSlider({
             <div className="relative w-4/5 h-4/5">
               <Image
                 fill
+                key={_key}
                 alt="Project Image"
                 src={url}
                 className="object-cover"
