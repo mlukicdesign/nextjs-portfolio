@@ -29,6 +29,10 @@ export const homePageQuery = groq`
     sliderProjects[]{
     _key,
     "url": asset->url
+  },
+  secondSliderProjects[]{
+    _key,
+    "url": asset->url
   }
   }
 `

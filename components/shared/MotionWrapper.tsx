@@ -8,17 +8,20 @@ interface MotionWrapperProps {
   variants: Variants
   className?: string
   delay?: number
+  viewport?: boolean
 }
 
 export const MotionWrapper = ({
   children,
   variants,
   className,
+  viewport,
   delay,
 }: MotionWrapperProps) => {
   return (
     <motion.div
       variants={variants}
+      viewport={{ once: true }}
       initial="hidden"
       whileInView="visible"
       exit="hidden"

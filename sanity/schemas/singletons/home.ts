@@ -120,7 +120,20 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'secondSliderProjects',
+      title: 'Second Slider Projects',
+      description:
+        'Add images to be displayed within the second row in the carousel component',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+        }),
+      ],
+    }),
   ],
+
   preview: {
     select: {
       title: 'title',

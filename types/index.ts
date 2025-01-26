@@ -50,6 +50,7 @@ export interface HomePagePayload {
   _updatedAt?: string
   sliderTitle?: any
   sliderProjects?: Image
+  secondSliderProjects?: Image
 }
 
 export interface ProjectPayload {
