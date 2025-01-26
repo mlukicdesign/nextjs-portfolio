@@ -82,46 +82,12 @@ export default defineType({
           name: 'displayText',
           type: 'boolean',
         },
-      ],
-    }),
-    defineField({
-      name: 'introParagraph',
-      title: 'Intro paragraph',
-      description: 'Paragraph for introductory section on homepage',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [
-              {
-                name: 'link',
-                type: 'object',
-                title: 'Link',
-                fields: [
-                  {
-                    name: 'href',
-                    type: 'url',
-                    title: 'Url',
-                  },
-                ],
-              },
-            ],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
+        {
+          title: 'Introductory Paragraph',
+          description: 'This is the text that will appear on the home page.',
+          name: 'introParagraph',
+          type: 'text',
+        },
       ],
     }),
     defineField({
