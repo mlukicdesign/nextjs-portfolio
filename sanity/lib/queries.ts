@@ -29,6 +29,20 @@ export const homePageQuery = groq`
     sliderProjects[]{
     _key,
     "url": asset->url
+  },
+  secondSliderProjects[]{
+    _key,
+    "url": asset->url
+  },
+  techGrid{
+    designTech[]{
+      "url": asset->url,
+      alt
+    },
+      devTech[]{
+      "url": asset->url,
+      alt
+    }
   }
   }
 `

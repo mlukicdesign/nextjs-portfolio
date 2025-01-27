@@ -120,7 +120,73 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'secondSliderProjects',
+      title: 'Second Slider Projects',
+      description:
+        'Add images to be displayed within the second row in the carousel component',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'techGrid',
+      title: 'Tech Grid',
+      type: 'object',
+      fields: [
+        {
+          name: 'designTech',
+          title: 'Design Technologies',
+          type: 'array',
+          of: [
+            {
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alt Text',
+                  type: 'string',
+                  description: 'Alternative text for accessibility',
+                },
+              ],
+            },
+          ],
+          description:
+            'Logos of technologies related to design (e.g., Adobe, Figma)',
+        },
+        {
+          name: 'devTech',
+          title: 'Development Technologies',
+          type: 'array',
+          of: [
+            {
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alt Text',
+                  type: 'string',
+                  description: 'Alternative text for accessibility',
+                },
+              ],
+            },
+          ],
+          description:
+            'Logos of technologies related to development (e.g., React, Node.js)',
+        },
+      ],
+    }),
   ],
+
   preview: {
     select: {
       title: 'title',

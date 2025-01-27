@@ -1,3 +1,5 @@
+'use client'
+
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
@@ -7,6 +9,10 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import { HomeIntro } from './HomeIntro'
 import HomeSlider from './HomeSlider'
+import { MotionWrapper } from '@/components/shared/MotionWrapper'
+import { fadeIn } from '@/utils/animationStyles'
+import HomeTech from './HomeTech'
+import HomeExplorations from './HomeExplorations'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -18,7 +24,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const { overview = [], showcaseProjects = [] } = data ?? {}
   const headerVideo = data?.headerVideo
   const sliderTitle = data?.sliderTitle
-  const sliderProjects = data?.sliderProjects
+  const sliderProjects = Array.isArray(data?.sliderProjects)
+    ? data.sliderProjects
+    : undefined
+  const secondSliderProjects = Array.isArray(data?.secondSliderProjects)
+    ? data.secondSliderProjects
+    : undefined
+  const techGrid = data?.techGrid
 
   return (
     <div className="">
@@ -32,13 +44,17 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       <div className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
-          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 text-arbeit">
+          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 font-arbeit">
             A Collection <br /> of Recent Works
           </h2>
         </div>
 
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div className="grid gap-8 md:gap-36 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0">
+          <MotionWrapper
+            variants={fadeIn}
+            delay={0.8}
+            className="grid gap-8 md:gap-16 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0"
+          >
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
 
@@ -63,11 +79,17 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                 </Link>
               )
             })}
-          </div>
+          </MotionWrapper>
         )}
       </div>
 
-      <HomeSlider sliderTitle={sliderTitle} sliderProjects={sliderProjects} />
+      <HomeSlider
+        sliderTitle={sliderTitle}
+        sliderProjects={sliderProjects}
+        secondSliderProjects={secondSliderProjects}
+      />
+      <HomeTech techGrid={techGrid} />
+      <HomeExplorations />
     </div>
   )
 }
