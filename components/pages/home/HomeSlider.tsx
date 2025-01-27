@@ -42,7 +42,7 @@ export default function HomeSlider({
   return (
     <div
       ref={container}
-      className="flex flex-col gap-[3vw] relative py-32 bg-void"
+      className="flex flex-col gap-[3vw] relative py-32 bg-void overflow-x-hidden"
     >
       <div className="h-[150px] overflow-hidden">
         <MotionWrapper

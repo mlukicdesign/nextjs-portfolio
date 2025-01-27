@@ -7,7 +7,7 @@ interface MotionWrapperProps {
   children: ReactNode
   variants: Variants
   className?: string
-  delay?: number
+  delay?: any
   viewport?: boolean
 }
 

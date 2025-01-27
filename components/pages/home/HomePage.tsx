@@ -12,6 +12,7 @@ import HomeSlider from './HomeSlider'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
 import HomeTech from './HomeTech'
+import HomeExplorations from './HomeExplorations'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -88,6 +89,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         secondSliderProjects={secondSliderProjects}
       />
       <HomeTech techGrid={techGrid} />
+      <HomeExplorations />
     </div>
   )
 }
