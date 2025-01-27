@@ -29,6 +29,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const secondSliderProjects = Array.isArray(data?.secondSliderProjects)
     ? data.secondSliderProjects
     : undefined
+  const techGrid = data?.techGrid
 
   return (
     <div className="">
@@ -86,7 +87,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         sliderProjects={sliderProjects}
         secondSliderProjects={secondSliderProjects}
       />
-      <HomeTech />
+      <HomeTech techGrid={techGrid} />
     </div>
   )
 }

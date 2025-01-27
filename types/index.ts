@@ -51,6 +51,7 @@ export interface HomePagePayload {
   sliderTitle?: any
   sliderProjects?: Image
   secondSliderProjects?: Image
+  techGrid?: any
 }
 
 export interface ProjectPayload {

@@ -43,8 +43,9 @@ export function Header(props: HeaderProps) {
       <div className="w-full h-screen md:max-h-screen max-h-[600px] relative">
         <div className="w-full h-full flex flex-col justify-end">
           <div className="">
-            <div className="h-[146px] relative bottom-8 overflow-hidden">
+            <div className="w-screen ~h-[146px]/[250px] relative bottom-8 overflow-hidden">
               <svg
+                className="w-full h-auto px-4"
                 width="full"
                 height="146"
                 viewBox="0 0 1788 146"

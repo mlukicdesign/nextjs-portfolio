@@ -19,11 +19,11 @@ export function HomeIntro(props: IntroProps) {
 
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
-      <div className="fluid-container flex flex-col mx-auto">
+      <div className="fluid-container flex flex-col mx-auto gap-12">
         <MotionWrapper
           variants={fadeIn}
           delay={0.6}
-          className="~text-3xl/6xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
+          className="~text-3xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
         >
           {description.displayText == true && (
             <CustomPortableText value={description.text} />
@@ -34,7 +34,7 @@ export function HomeIntro(props: IntroProps) {
           delay={1}
           className="w-full flex items-end justify-end"
         >
-          <p className="lg:w-1/2 font-arbeit text-pretty ~text-lg/2xl text-neutral-200 leading-loose max-w-[600px]">
+          <p className="lg:w-1/2 font-arbeit  text-pretty ~text-lg/xl text-neutral-300 leading-loose max-w-[600px]">
             {description.introParagraph}
           </p>
         </MotionWrapper>

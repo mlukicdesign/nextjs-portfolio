@@ -39,12 +39,9 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <motion.div variants={navAnimation} initial="hidden" animate="visible">
-      <div className="flex flex-wrap w-full justify-between items-center gap-x-5 ~px-12/6 h-[100px]">
+      <div className="flex flex-wrap w-full justify-between items-center gap-x-5 ~px-6/12 h-[100px]">
         {customLogo && customLogo ? (
-          <Link
-            href={`/`}
-            className={`text-xl hover:text-secondary md:text-2xl`}
-          >
+          <Link href={`/`} className={`~text-sm/xl`}>
             <div className="flex h-6">
               <Image
                 alt={title}
@@ -57,10 +54,7 @@ export default function Navbar(props: NavbarProps) {
             </div>
           </Link>
         ) : (
-          <Link
-            href={`/`}
-            className={` text-2xl hover:text-secondary md:text-2xl`}
-          >
+          <Link href={`/`} className={`~text-sm/xl`}>
             {title}
           </Link>
         )}
@@ -82,7 +76,7 @@ export default function Navbar(props: NavbarProps) {
                 <Link
                   key={key}
                   target="_blank"
-                  className={`text-lg px-3 py-1 text-secondary font-arbeit`}
+                  className={`~text-sm/lg px-3 py-1 text-secondary font-arbeit`}
                   href={menuItem.url!}
                 >
                   {menuItem.title}
