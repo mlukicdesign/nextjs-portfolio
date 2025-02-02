@@ -31,6 +31,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     ? data.secondSliderProjects
     : undefined
   const techGrid = data?.techGrid
+  const explorationCarousel = Array.isArray(data?.explorationCarousel)
+    ? data.explorationCarousel
+    : undefined
 
   return (
     <div className="">
@@ -89,7 +92,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         secondSliderProjects={secondSliderProjects}
       />
       <HomeTech techGrid={techGrid} />
-      <HomeExplorations />
+      <HomeExplorations explorationCarousel={explorationCarousel} />
     </div>
   )
 }
