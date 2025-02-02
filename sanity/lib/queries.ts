@@ -43,7 +43,11 @@ export const homePageQuery = groq`
       "url": asset->url,
       alt
     }
-  }
+  },
+   explorationCarousel[]{
+      _key,
+      "url": asset->url
+    }
   }
 `
 

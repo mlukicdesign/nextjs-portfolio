@@ -185,8 +185,17 @@ export default defineType({
         },
       ],
     }),
+    defineField({
+      name: 'explorationCarousel',
+      title: 'Exploration Carousel',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'image',
+        }),
+      ],
+    }),
   ],
-
   preview: {
     select: {
       title: 'title',

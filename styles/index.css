@@ -25,6 +25,7 @@ ol {
   @apply ~px-8/16;
 }
 
+/* For Video Element */
 .radial-gradient {
   background: radial-gradient(
       47.96% 79.31% at 49.97% 50%,
@@ -43,4 +44,23 @@ ol {
   color: transparent;
   display: inline-block;
   padding-bottom: 20px; /* Adjust as needed */
+}
+
+/* For logo carousel */
+.carousel-gradient {
+  background: linear-gradient(180deg, #010C13 0%, rgba(1, 12, 19, 0.10) 47.5%, #010C13 100%);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-33.33%); /* Adjust to match the number of items visible in the carousel */
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 15s linear infinite; /* Adjust the time for faster/slower autoplay */
 }
