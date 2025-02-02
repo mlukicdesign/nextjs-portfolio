@@ -62,5 +62,5 @@ ol {
 
 .animate-marquee {
   display: flex;
-  animation: marquee 2s linear infinite; /* Adjust the time for faster/slower autoplay */
+  animation: marquee 15s linear infinite; /* Adjust the time for faster/slower autoplay */
 }
