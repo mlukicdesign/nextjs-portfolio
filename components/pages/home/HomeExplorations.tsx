@@ -37,35 +37,39 @@ export default function HomeExplorations({
     delay = 2000,
     reverseDirection = false,
   }) => (
-    <Swiper
-      modules={[Autoplay, Pagination, Navigation]}
-      direction="vertical"
-      loop={true}
-      spaceBetween={5}
-      speed={1200}
-      autoplay={{
-        delay,
-        disableOnInteraction: false,
-        reverseDirection,
-      }}
-      className="h-[200px] overflow-hidden"
-    >
-      {images.map(({ _key, url }) => (
-        <SwiperSlide
-          key={_key}
-          className="flex justify-center items-center relative"
-        >
-          <div className="absolute top-0 left-0 right-0 bottom-0 carousel-gradient z-50"></div>
-          <Image
-            src={url}
-            width={100}
-            height={100}
-            alt="Exploration Image"
-            className="object-contain"
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="relative">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        direction="vertical"
+        slidesPerView={2}
+        loop={true}
+        centeredSlides={true}
+        spaceBetween={75}
+        speed={1200}
+        autoplay={{
+          delay,
+          disableOnInteraction: false,
+          reverseDirection,
+        }}
+        className="h-[200px] overflow-hidden"
+      >
+        {images.map(({ _key, url }) => (
+          <SwiperSlide
+            key={_key}
+            className="flex justify-center items-center relative"
+          >
+            <Image
+              src={url}
+              width={100}
+              height={100}
+              alt="Exploration Image"
+              className="cover"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className="absolute top-0 left-0 right-0 bottom-0 carousel-gradient z-50"></div>
+    </div>
   )
 
   return (
@@ -85,7 +89,7 @@ export default function HomeExplorations({
           <CarouselInstance images={carousel1Images} delay={2000} />
           <CarouselInstance
             images={carousel2Images}
-            delay={2200}
+            delay={2000}
             reverseDirection={true}
           />
           <CarouselInstance images={carousel3Images} delay={2000} />
