@@ -21,7 +21,7 @@ export default async function RootLayout({
         ['--color-primary' as any]: rgbaBgColor,
         ['--color-secondary' as any]: rgbaTextColor,
       }}
-      className={`bg-primary`}
+      className={`bg-primary font-arbeit`}
     >
       <body>{children}</body>
     </html>

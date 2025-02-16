@@ -10,9 +10,10 @@ import type { HomePagePayload } from '@/types'
 import { HomeIntro } from './HomeIntro'
 import HomeSlider from './HomeSlider'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
-import { fadeIn } from '@/utils/animationStyles'
+import { fadeIn, slideUp } from '@/utils/animationStyles'
 import HomeTech from './HomeTech'
 import HomeExplorations from './HomeExplorations'
+import HomeContact from './HomeContact'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -54,15 +55,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
         {showcaseProjects && showcaseProjects.length > 0 && (
           <MotionWrapper
-            variants={fadeIn}
-            delay={0.8}
+            variants={slideUp}
+            delay={1.5}
             className="grid gap-8 md:gap-16 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0"
           >
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
 
               const index = key + 1
-              const isEven = index % 2 === 0 ? 'md:pt-32 pt-0' : 'pt-0'
+              const offSet = `${index === 2 ? 'pt-0 md:pt-32' : ''} 
+               ${index === 3 ? 'md:-mt-32' : ''}`
 
               if (!href) {
                 return null
@@ -71,7 +73,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                 <Link
                   key={key}
                   href={href}
-                  className={isEven}
+                  className={offSet}
                   data-sanity={encodeDataAttribute?.([
                     'showcaseProjects',
                     key,
@@ -93,6 +95,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
       <HomeTech techGrid={techGrid} />
       <HomeExplorations explorationCarousel={explorationCarousel} />
+      <HomeContact />
     </div>
   )
 }

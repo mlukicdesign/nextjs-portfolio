@@ -18,11 +18,11 @@ ol {
 }
 
 .fluid-container {
-  @apply ~py-8/32 ~px-8/16 max-w-[1700px];
+  @apply ~py-8/32 ~px-4/12 max-w-[1700px];
 }
 
 .fluid-container-x {
-  @apply ~px-8/16;
+  @apply ~px-4/12;
 }
 
 /* For Video Element */
@@ -44,6 +44,7 @@ ol {
   color: transparent;
   display: inline-block;
   padding-bottom: 20px; /* Adjust as needed */
+  font-family: 'arbiet', sans-serif;
 }
 
 /* For logo carousel */

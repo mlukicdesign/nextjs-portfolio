@@ -89,6 +89,7 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
                     whileInView="visible"
                     initial="hidden"
                     custom={index}
+                    viewport={{ once: true }}
                   >
                     <Image
                       src={logo.url}

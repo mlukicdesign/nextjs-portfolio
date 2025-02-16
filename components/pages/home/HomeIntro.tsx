@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
 import { slideUp } from '@/utils/animationStyles'
+import Button from '@/components/shared/Button'
 
 interface IntroProps {
   description?: any
@@ -21,7 +22,7 @@ export function HomeIntro(props: IntroProps) {
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
         <MotionWrapper
-          variants={fadeIn}
+          variants={slideUp}
           delay={0.6}
           className="~text-3xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
         >
@@ -30,13 +31,16 @@ export function HomeIntro(props: IntroProps) {
           )}
         </MotionWrapper>
         <MotionWrapper
-          variants={slideUp}
+          variants={fadeIn}
           delay={1}
-          className="w-full flex items-end justify-end"
+          className="w-full items-end justify-end flex flex-col"
         >
-          <p className="lg:w-1/2 font-arbeit  text-pretty ~text-lg/xl text-neutral-300 leading-loose max-w-[600px]">
-            {description.introParagraph}
-          </p>
+          <div className="flex flex-col max-w-[600px] lg:w-1/2 gap-8">
+            <p className="font-arbeit text-pretty ~text-lg/xl text-neutral-300 leading-loose w-full">
+              {description.introParagraph}
+            </p>
+            <Button buttonText="Read More" link="/about" />
+          </div>
         </MotionWrapper>
       </div>
     </section>

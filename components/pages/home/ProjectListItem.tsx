@@ -16,7 +16,7 @@ export function ProjectListItem(props: ProjectProps) {
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[5/4]"
+          classesWrapper="relative aspect-[5/4] hover:opacity-75 transition-opacity duration-300"
         />
       </div>
       <div className="flex">
@@ -32,7 +32,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
   return (
     <div className="flex flex-wrap justify-between mt-4 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
-      <div className="flex underline">{project.title}</div>
+      <div className="font-arbeit flex underline">{project.title}</div>
       <div className="flex">
         {/* Tags */}
         {Array.isArray(project.tags) && (
@@ -44,23 +44,23 @@ function TextBox({ project }: { project: ShowcaseProject }) {
               switch (tag) {
                 case 'WordPress':
                   tagStyle =
-                    'text-[#1986DA] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#00121A] mx-1 border border-slate-900 mx-1'
+                    'text-[#1986DA] border text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#00121A] mx-1 border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
                   break
                 case 'PHP':
                   tagStyle =
-                    'text-[#A259FF] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#10061E] mx-1 border border-slate-900 mx-1'
+                    'text-[#A259FF] text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#10061E] mx-1 border border-slate-900 mx-1  hover:opacity-75 transition-opacity duration-300'
                   break
                 case 'Design':
                   tagStyle =
-                    'text-[#0ACF83] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#011E13] border border-slate-900 mx-1'
+                    'text-[#0ACF83] text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#011E13] border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
                   break
                 case 'Headless':
                   tagStyle =
-                    'text-[#FF7262] text-arbeit px-6 py-3 rounded-full text-sm font-medium bg-[#200300] border border-slate-900 mx-1'
+                    'text-[#FF7262] text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#200300] border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
                   break
                 default:
                   tagStyle =
-                    'text-gray-500 px-6 py-3 rounded-full text-sm font-medium bg-slate-200 mx-1'
+                    'text-gray-500 px-6 py-3 rounded-full text-xs font-medium hover:opacity-75 bg-slate-200 mx-1 transition-opacity duration-300'
               }
 
               return (
