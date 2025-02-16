@@ -21,7 +21,7 @@ export function HomeIntro(props: IntroProps) {
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
         <MotionWrapper
-          variants={fadeIn}
+          variants={slideUp}
           delay={0.6}
           className="~text-3xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
         >
@@ -30,7 +30,7 @@ export function HomeIntro(props: IntroProps) {
           )}
         </MotionWrapper>
         <MotionWrapper
-          variants={slideUp}
+          variants={fadeIn}
           delay={1}
           className="w-full flex items-end justify-end"
         >

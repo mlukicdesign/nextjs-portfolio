@@ -10,7 +10,7 @@ import type { HomePagePayload } from '@/types'
 import { HomeIntro } from './HomeIntro'
 import HomeSlider from './HomeSlider'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
-import { fadeIn } from '@/utils/animationStyles'
+import { fadeIn, slideUp } from '@/utils/animationStyles'
 import HomeTech from './HomeTech'
 import HomeExplorations from './HomeExplorations'
 import HomeContact from './HomeContact'
@@ -55,8 +55,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
         {showcaseProjects && showcaseProjects.length > 0 && (
           <MotionWrapper
-            variants={fadeIn}
-            delay={0.8}
+            variants={slideUp}
+            delay={1.5}
             className="grid gap-8 md:gap-16 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0"
           >
             {showcaseProjects.map((project, key) => {

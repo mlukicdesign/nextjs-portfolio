@@ -1,40 +1,71 @@
-import React from 'react'
+'use client'
+
+import { MotionWrapper } from '@/components/shared/MotionWrapper'
+import React, { useState } from 'react'
+import { fadeIn, slideUp } from '@/utils/animationStyles'
 
 export default function HomeContact() {
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+    setLoading(true)
+    setSuccess(false)
+
+    const formData = new FormData(event.target)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'post',
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error(`response status: ${response.status}`)
+      }
+
+      setSuccess(true)
+      event.target.reset()
+    } catch (err) {
+      console.error(err)
+      alert('Error, please try resubmitting the form')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <div className="radial-gradient w-screen">
-      <div className="fluid-container flex flex-col justify-center items-center ">
+      <div className="fluid-container flex flex-col justify-center items-center">
         <div className="w-full">
-          <h2 className="md:w-1/2 w-full text-gradient ~text-2xl/4xl font-arbeit text-balance">
-            Questions, musings, or feedback? I’m all ears (and emails).
-          </h2>
+          <MotionWrapper variants={slideUp}>
+            <h2 className="md:w-2/3 w-full text-gradient ~text-3xl/5xl font-arbeit text-balance">
+              Questions, musings, or feedback? I’m all ears (and emails).
+            </h2>
+          </MotionWrapper>
         </div>
+
         <div className="w-full flex justify-end">
-          <form className="md:w-1/2 w-full">
+          <form onSubmit={handleSubmit} className="md:w-1/2 w-full">
             <div className="mb-4 flex flex-col w-500 gap-16">
               <input
                 id="form-name"
-                placeholder="Name"
+                placeholder="Your Name"
                 autoComplete="name"
                 maxLength={50}
                 name="name"
-                className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent
-                focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all
-                "
+                className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all"
               />
               <input
                 id="form-email"
                 required
-                placeholder="Email"
+                placeholder="Your Email Address"
                 autoComplete="email"
                 maxLength={80}
                 name="email"
                 type="email"
-                className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent
-                focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all
-                "
+                className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all"
               />
-
               <textarea
                 id="form-message"
                 placeholder="Type your message here..."
@@ -44,14 +75,25 @@ export default function HomeContact() {
                 className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all"
               />
             </div>
-            <button
-              className="mt-8 font-arbiet px-16 py-4 rounded-lg border border-white/25 bg-transparent hover:border-ion-400/50 
-               hover:bg-gradient-to-b from-[rgba(29,59,255,0)] to-[rgba(29,59,255,0.25)] 
-               hover:backdrop-blur-md transition"
-              type="submit"
-            >
-              Send
-            </button>
+            <div className="flex justify-end gap-4">
+              {success && (
+                <p className="text-white pr-6 mt-4 text-balance font-arbeit">
+                  Thank you for your submission, I will endeavour to get back to
+                  you soon!
+                </p>
+              )}
+              <button
+                className="mt-8 font-arbiet px-16 py-4 rounded-lg border border-white/25 bg-transparent hover:border-ion-400/50 hover:bg-gradient-to-b from-[rgba(29,59,255,0)] to-[rgba(29,59,255,0.25)] hover:backdrop-blur-md transition flex items-center justify-center"
+                type="submit"
+                disabled={loading}
+              >
+                {loading ? (
+                  <span className="loader">Flicking it through...</span>
+                ) : (
+                  'Send'
+                )}
+              </button>
+            </div>
           </form>
         </div>
       </div>
