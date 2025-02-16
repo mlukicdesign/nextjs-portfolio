@@ -3,7 +3,7 @@ interface ButtonProps {
   buttonText?: string
 }
 
-export default function ({ link, buttonText }: ButtonProps) {
+export default function IconButton({ link, buttonText }: ButtonProps) {
   return (
     <a
       href={link}

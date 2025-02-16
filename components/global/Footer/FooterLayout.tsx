@@ -3,7 +3,7 @@
 import type { HomePagePayload, SettingsPayload } from '@/types'
 import { motion } from 'framer-motion'
 import { cubicBezier } from 'framer-motion'
-import Button from '@/components/shared/Button'
+import Button from '@/components/shared/IconButton'
 
 interface FooterProps {
   data: SettingsPayload

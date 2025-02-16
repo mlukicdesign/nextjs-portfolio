@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
 import { slideUp } from '@/utils/animationStyles'
-import Button from '@/components/shared/Button'
+import Button from '@/components/shared/IconButton'
 
 interface IntroProps {
   description?: any
