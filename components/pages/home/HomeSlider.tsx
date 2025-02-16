@@ -42,22 +42,24 @@ export default function HomeSlider({
   return (
     <div
       ref={container}
-      className="flex flex-col gap-[3vw] relative py-32 bg-void overflow-x-hidden"
+      className="flex flex-col relative py-32 bg-void overflow-x-hidden"
     >
       <div className="h-[150px] overflow-hidden">
         <MotionWrapper
           variants={fadeIn}
           delay={1}
-          className="pb-8 text-center max-w-[800px] mx-auto"
+          className="!pb-64 text-center max-w-[800px] mx-auto"
         >
-          <h2 className="text-gradient ~text-4xl/6xl">{sliderTitle}</h2>
+          <h2 className=" text-gradient font-arbiet ~text-4xl/6xl">
+            {sliderTitle}
+          </h2>
         </MotionWrapper>
       </div>
 
       {/* First row of slider projects */}
       <motion.div
         style={{ x: rowTransform }}
-        className="flex relative gap-[3vw] w-[120vw] -left-[10vw]"
+        className="flex relative gap-[2vw] w-[120vw] -left-[10vw]"
       >
         {sliderProjects.map(({ _key, url }) => (
           <div
@@ -80,7 +82,7 @@ export default function HomeSlider({
       {/* Second Row of Slider Projects */}
       <motion.div
         style={{ x: row2Transform }}
-        className="flex relative gap-[3vw] w-[120vw] right-[10vw]"
+        className="flex relative gap-[2vw] w-[120vw] right-[10vw]"
       >
         {secondSliderProjects.map(({ _key, url }) => (
           <div
