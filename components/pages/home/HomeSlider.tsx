@@ -70,7 +70,7 @@ export default function HomeSlider({
                 key={_key}
                 alt="Project Image"
                 src={url}
-                className="object-cover"
+                className="aspect-video object-cover hover:scale-105 transition-all transition-500 rounded-sm border border-white/10"
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function HomeSlider({
                 key={_key}
                 alt="Project Image"
                 src={url}
-                className="object-cover"
+                className="aspect-video object-cover hover:scale-105 transition-all transition-500 rounded-sm border border-white/10"
               />
             </div>
           </div>

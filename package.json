@@ -32,6 +32,7 @@
     "lenis": "^1.1.16",
     "next": "14.2.4",
     "next-sanity": "9.3.10",
+    "nodemailer": "^6.10.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-intersection-observer": "^9.13.0",
