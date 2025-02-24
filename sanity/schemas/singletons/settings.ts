@@ -37,23 +37,23 @@ export default defineType({
               title: 'Title',
               name: 'title',
               type: 'string',
-              description: 'Display Text'
+              description: 'Display Text',
             },
             {
               title: 'URL',
               name: 'url',
               type: 'url',
               description: 'enter an external URL',
-              validation: Rule =>
-              Rule.uri({
-                scheme: ['http', 'https', 'mailto', 'tel']
-              }),
+              validation: (Rule) =>
+                Rule.uri({
+                  scheme: ['http', 'https', 'mailto', 'tel'],
+                }),
             },
           ],
           preview: {
             select: {
               title: 'title',
-              url: 'url'
+              url: 'url',
             },
             prepare({ title, url }) {
               return {
@@ -67,10 +67,17 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'internalVideo',
+      description: 'Header video displayed on internal page',
+      title: 'Internal Header Video',
+      type: 'string',
+    }),
+    defineField({
       name: 'ogImage',
       title: 'Open Graph Image',
       type: 'image',
-      description: 'Displayed on social cards and search engine results. It should be 1200 X 630 pixels.',
+      description:
+        'Displayed on social cards and search engine results. It should be 1200 X 630 pixels.',
       options: {
         hotspot: true,
       },
@@ -86,7 +93,7 @@ export default defineType({
     }),
     defineField({
       name: 'bgColor',
-      title: 'Backgroung color',
+      title: 'Background color',
       type: 'color',
     }),
     defineField({
@@ -96,7 +103,8 @@ export default defineType({
     }),
     defineField({
       title: 'Display "Last updated" at the footer of the website',
-      description: 'Turn on to display time whe you last added new project to your Home page',
+      description:
+        'Turn on to display time whe you last added new project to your Home page',
       name: 'displayLastUpdated',
       type: 'boolean',
     }),

@@ -46,7 +46,11 @@ export default function Footer(props: FooterProps) {
               <span className="text-[#A4E3FE]">everything</span>
             </span>
 
-            <Button buttonText="View The Figma Design" link="#" />
+            <span className="text-sm text-gray-500 font-arbeit max-w-[280px] text-balance">
+              All projects displayed on this portfolio are for demonstration
+              purposes only. Ownership and rights remain with the respective
+              clients and agencies.
+            </span>
           </div>
         </div>
         <div className="flex w-full flex-row justify-between items-end gap-12">

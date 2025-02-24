@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { useInView } from 'react-intersection-observer'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import { useRef } from 'react'
 
 import { urlForImage } from '@/sanity/lib/utils'
 
@@ -26,36 +28,54 @@ export default function ImageBox({
   previewImageUrl = image?.lqip,
   ...props
 }: ImageBoxProps) {
+  const containerRef = useRef(null)
   const imageUrl =
     image && urlForImage(image)?.height(height).width(width).fit('crop').url()
 
-  const { ref, inView } = useInView({
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+
+  const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   })
 
+  // Combine both refs
+  const refs = (el: any) => {
+    containerRef.current = el
+    inViewRef(el)
+  }
+
   return (
     <div
-      className={`w-full h-full overflow-hidden ${classesWrapper} rounded-md border border-white/15`}
+      ref={refs}
+      className={`w-full h-full overflow-hidden relative ${classesWrapper} rounded-md border border-white/15`}
       data-sanity={props['data-sanity']}
     >
       {imageUrl && (
-        <Image
-          className="absolute w-full h-full"
-          ref={ref}
-          style={{
-            opacity: inView ? 1 : 0,
-            transition: 'opacity 0.3s linear',
-            objectFit: 'cover',
-            width: '100%',
-            height: '100%',
-          }}
-          alt={alt}
-          width={width}
-          height={height}
-          sizes={size}
-          src={imageUrl}
-        />
+        <motion.div
+          style={{ y }}
+          className="absolute w-full h-[120%] top-[-10%]" // Extra height for parallax movement
+        >
+          <Image
+            className="absolute w-full h-full"
+            style={{
+              opacity: inView ? 1 : 0,
+              transition: 'opacity 0.3s linear',
+              objectFit: 'cover',
+            }}
+            alt={alt}
+            width={width}
+            height={height}
+            sizes={size}
+            src={imageUrl}
+            priority
+          />
+        </motion.div>
       )}
       <div className={`w-full overflow-hidden h-full`}>
         <Image

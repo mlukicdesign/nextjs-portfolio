@@ -21,6 +21,8 @@ export default function Navbar(props: NavbarProps) {
   const { data } = props
   const title = props.title ?? ''
 
+  const video = data?.internalVideo
+
   const menuItems = data?.menuItems ?? {}
   const menuPages = menuItems?.page || ([] as PageItem[])
   const menuLinks = menuItems?.link || ([] as LinkItem[])

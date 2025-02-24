@@ -4,18 +4,37 @@ import Link from 'next/link'
 import { Module } from '@/components/modules'
 import { MoreProjects } from '@/components/pages/project/MoreProjects'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import type { ProjectPayload } from '@/types'
-import type { HomePagePayload } from '@/types'
+import type { ProjectPayload, HomePagePayload } from '@/types'
+import type { SettingsPayload } from '@/types'
+import tagStyles from '@/utils/tagStyles'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
   moreProjects: HomePagePayload | null
+  global: SettingsPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
+}
+
+export const getTagStyle = (tag: string): string => {
+  const baseStyle =
+    'text-arbeit px-6 py-3 rounded-full text-sm font-medium mx-1 border border-slate-900'
+
+  const styles: Record<string, string> = {
+    WordPress: 'text-[#1986DA] bg-[#00121A]',
+    PHP: 'text-[#A259FF] bg-[#10061E]',
+    Design: 'text-[#0ACF83] bg-[#011E13]',
+    Headless: 'text-[#FF7262] bg-[#200300]',
+  }
+
+  return styles[tag]
+    ? `${styles[tag]} ${baseStyle}`
+    : 'text-gray-500 bg-slate-200 px-6 py-3 rounded-full text-sm font-medium mx-1'
 }
 
 export function ProjectPage({
   data,
   moreProjects,
+  global,
   encodeDataAttribute,
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
@@ -24,6 +43,9 @@ export function ProjectPage({
 
   // Get a list of showcased projects
   const { showcaseProjects = [] } = moreProjects ?? {}
+
+  // Get the internal video from the global settings
+  const video = global?.internalVideo
 
   // Get previous and next project
   const projects = showcaseProjects
@@ -35,26 +57,68 @@ export function ProjectPage({
 
   return (
     <div>
-      <div className="mb-10 md:mb-20 space-y-6">
-        <div className="flex flex-wrap justify-between flex-col md:flex-row">
-          <div className="w-full lg:w-2/4">
-            {/* Title */}
-            {title && <div className="text-2xl md:text-4xl">{title}</div>}
-            {/* Year */}
-            {year && <div className="md:mt-2 text-lg md:text-2xl">{year}</div>}
-            {/* Tags */}
-            {Array.isArray(tags) && (
-              <div className="md:mt-2 text-lg md:text-2xl">
-                {tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="text-white px-3 py-1 rounded-full text-sm font-medium p-2 bg-blue-700 mx-2"
-                  >
-                    {tag}
-                  </span>
-                ))}
+      {/* Header */}
+      <div className="md:h-[400px] h-[100px] bg-red-500 flex flex-col justify-end radial-gradient">
+        <div className="fluid-container">
+          {title && (
+            <div className="~text-2xl/5xl font-arbeit text-white">{title}</div>
+          )}
+        </div>
+      </div>
+      {/* className="fixed h-full w-full object-cover radial-gradient" */}
+      <div className="pb-64 space-y-6 bg-void">
+        <div className="flex flex-wrap justify-between flex-col md:flex-row fluid-container">
+          {/* Info col */}
+          <div className="flex flex-col gap-6 w-full md:w-1/3">
+            <div>
+              <span className="text-sm text-gray-500 tracking-widest capitalize">
+                AGENCY
+              </span>
+              {/* Year changing to agency */}
+              <div className="py-2 border-t border-gray-500">
+                {year && (
+                  <div className="md:mt-2 text-lg md:text-2xl">{year}</div>
+                )}
               </div>
-            )}
+            </div>
+            {/* Tags */}
+            <div>
+              <span className="text-sm text-gray-500 tracking-widest capitalize">
+                SOLUTION & SERVICES
+              </span>
+              <div className="py-2 border-t border-gray-500 ">
+                {Array.isArray(tags) && (
+                  <div className="md:mt-2 text-lg md:text-2xl">
+                    {tags.map((tag, index) => (
+                      <span key={index} className={getTagStyle(tag)}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+            <div>
+              <span className="text-sm text-gray-500 tracking-widest capitalize">
+                VIEW FULL SITE
+              </span>
+              <div className="py-2 border-t border-gray-500">
+                {/* Site */}
+                {site && (
+                  <div className="mt-3">
+                    {site && (
+                      <Link
+                        target="_blank"
+                        className="text-xl break-words md:text-2xl underline"
+                        href={site.url}
+                      >
+                        {site.urltitle}
+                      </Link>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
           <div className="w-full lg:w-2/4">
             {/* Overview */}
@@ -63,21 +127,19 @@ export function ProjectPage({
                 <CustomPortableText value={overview} />
               </div>
             )}
-            {/* Site */}
-            {site && (
-              <div className="mt-3">
-                {site && (
-                  <Link
-                    target="_blank"
-                    className="text-xl break-words md:text-2xl underline"
-                    href={site.url}
-                  >
-                    {site.urltitle}
-                  </Link>
-                )}
-              </div>
-            )}
           </div>
+        </div>
+
+        <div className="h-full w-full absolute top-0 -z-30">
+          <div className="absolute z-10 top-0 left-0 w-full h-full radial-gradient"></div>
+          <video
+            src="https://cdn.sanity.io/files/6o5yisdo/production/1f88f75e0189bd95381d4ab5c2268a6496e6a84c.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="fixed h-full w-full object-cover radial-gradient"
+          />
         </div>
 
         <div>
