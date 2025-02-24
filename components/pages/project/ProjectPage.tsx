@@ -5,8 +5,6 @@ import { Module } from '@/components/modules'
 import { MoreProjects } from '@/components/pages/project/MoreProjects'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import type { ProjectPayload, HomePagePayload } from '@/types'
-import type { SettingsPayload } from '@/types'
-import tagStyles from '@/utils/tagStyles'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
