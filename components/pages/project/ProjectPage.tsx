@@ -11,7 +11,6 @@ import tagStyles from '@/utils/tagStyles'
 export interface ProjectPageProps {
   data: ProjectPayload | null
   moreProjects: HomePagePayload | null
-  global: SettingsPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -34,7 +33,6 @@ export const getTagStyle = (tag: string): string => {
 export function ProjectPage({
   data,
   moreProjects,
-  global,
   encodeDataAttribute,
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
