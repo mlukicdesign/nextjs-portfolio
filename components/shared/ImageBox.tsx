@@ -37,7 +37,7 @@ export default function ImageBox({
     offset: ['start end', 'end start'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
 
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
