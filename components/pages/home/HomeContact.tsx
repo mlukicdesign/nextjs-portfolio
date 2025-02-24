@@ -54,7 +54,7 @@ export default function HomeContact() {
                 autoComplete="name"
                 maxLength={50}
                 name="name"
-                className="font-arbiet px-2 py-2 border-b border-white/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all"
+                className="font-arbeit px-2 py-2 border-b border-white/20 bg-transparent focus:outline-none focus:ring-2 focus:ring-gray-100/10 focus:bg-white/5 focus:backdrop-blur-sm transition-all"
               />
               <input
                 id="form-email"

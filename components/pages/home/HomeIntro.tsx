@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
 import { slideUp } from '@/utils/animationStyles'
-import Button from '@/components/shared/Button'
+import Button from '@/components/shared/IconButton'
 
 interface IntroProps {
   description?: any
@@ -36,7 +36,7 @@ export function HomeIntro(props: IntroProps) {
           className="w-full items-end justify-end flex flex-col"
         >
           <div className="flex flex-col max-w-[600px] lg:w-1/2 gap-8">
-            <p className="font-arbeit text-pretty ~text-lg/xl text-neutral-300 leading-loose w-full">
+            <p className="font-arbeit text-pretty ~text-lg/xl text-gray-400 leading-loose w-full">
               {description.introParagraph}
             </p>
             <Button buttonText="Read More" link="/about" />

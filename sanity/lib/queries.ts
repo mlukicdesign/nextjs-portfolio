@@ -158,6 +158,7 @@ export const projectPaths = groq`
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
     footer,
+    internalVideo,
     "menuItems": {
       "page": menuItems[_type == 'reference']->{
         _type,
