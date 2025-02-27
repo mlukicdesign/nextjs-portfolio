@@ -1,4 +1,8 @@
+'use client'
+
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
+import { MotionWrapper } from './MotionWrapper'
+import { slideUp } from '@/utils/animationStyles'
 
 interface TextBoxProps {
   description?: any[]
@@ -9,13 +13,15 @@ export default function Header(props: TextBoxProps) {
     return null
   }
   return (
-    <div className="my-10 md:my-28 px-8 md:px-28">
-      {/* Description */}
-      {description && (
-        <div className="text-center ~text-xl/4xl font-arbeit">
-          <CustomPortableText value={description} />
-        </div>
-      )}
-    </div>
+    <MotionWrapper variants={slideUp} delay={0.6}>
+      <div className="fluid-container">
+        {/* Description */}
+        {description && (
+          <div className="text-center ~text-lg/3xl text-gray-300 !leading-relaxed text-balance font-arbeit max-w-[1200px] mx-auto">
+            <CustomPortableText value={description} />
+          </div>
+        )}
+      </div>
+    </MotionWrapper>
   )
 }

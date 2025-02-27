@@ -5,13 +5,11 @@ import { Module } from '@/components/modules'
 import { MoreProjects } from '@/components/pages/project/MoreProjects'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import type { ProjectPayload, HomePagePayload } from '@/types'
-import type { SettingsPayload } from '@/types'
-import tagStyles from '@/utils/tagStyles'
+import Button from '@/components/shared/IconButton'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
   moreProjects: HomePagePayload | null
-  global: SettingsPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -34,7 +32,6 @@ export const getTagStyle = (tag: string): string => {
 export function ProjectPage({
   data,
   moreProjects,
-  global,
   encodeDataAttribute,
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
@@ -66,8 +63,8 @@ export function ProjectPage({
         </div>
       </div>
       {/* className="fixed h-full w-full object-cover radial-gradient" */}
-      <div className="pb-64 space-y-6 bg-void">
-        <div className="flex flex-wrap justify-between flex-col md:flex-row fluid-container">
+      <div className="pb-72 space-y-6 bg-void mx-auto">
+        <div className="w-full mx-auto flex flex-wrap justify-between flex-col md:flex-row fluid-container">
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
             <div>
@@ -102,20 +99,10 @@ export function ProjectPage({
               <span className="text-sm text-gray-500 tracking-widest capitalize">
                 VIEW FULL SITE
               </span>
-              <div className="py-2 border-t border-gray-500">
+              <div className="py-4 border-t border-gray-500">
                 {/* Site */}
                 {site && (
-                  <div className="mt-3">
-                    {site && (
-                      <Link
-                        target="_blank"
-                        className="text-xl break-words md:text-2xl underline"
-                        href={site.url}
-                      >
-                        {site.urltitle}
-                      </Link>
-                    )}
-                  </div>
+                  <Button buttonText="View full website" link={site?.url} />
                 )}
               </div>
             </div>
@@ -123,7 +110,7 @@ export function ProjectPage({
           <div className="w-full lg:w-2/4">
             {/* Overview */}
             {overview && (
-              <div className="mt-4 text-xl md:text-2xl">
+              <div className="mt-4 ~text-xl/3xl text-balance text-gray-200 !leading-relaxed">
                 <CustomPortableText value={overview} />
               </div>
             )}
@@ -149,8 +136,16 @@ export function ProjectPage({
           ))}
         </div>
 
+        <div className="w-full flex justify-center mx-auto ~py-64/32">
+          <Button buttonText="View full website" link={site?.url} />
+        </div>
+
         {/* Previous and next project links */}
-        {projects && <MoreProjects previous={prevProject} next={nextProject} />}
+        <div className="fluid-container-x">
+          {projects && (
+            <MoreProjects previous={prevProject} next={nextProject} />
+          )}
+        </div>
       </div>
     </div>
   )

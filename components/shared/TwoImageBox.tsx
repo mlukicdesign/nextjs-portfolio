@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 
 import { urlForImage } from '@/sanity/lib/utils'
+import { MotionWrapper } from './MotionWrapper'
+import { slideUp } from '@/utils/animationStyles'
 
 interface ImageBoxProps {
   leftImage?: { asset?: any; lqip?: any }
@@ -38,46 +42,50 @@ export default function ImageBox({
   return (
     <div className="mt-5 md:mt-10">
       <div className="grid gap-5 grid-cols-1 xl:grid-cols-2">
-        <div
-          className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}
-        >
-          {leftImageUrl && (
-            <Image
-              className="absolute h-full w-full"
-              alt={alt}
-              style={{
-                width: '100%',
-                height: 'auto',
-              }}
-              width={500}
-              height={300}
-              sizes={sizes}
-              src={leftImageUrl}
-              placeholder="blur"
-              blurDataURL={previewLeftImageUrl}
-            />
-          )}
-        </div>
-        <div
-          className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}
-        >
-          {rightImageUrl && (
-            <Image
-              className="absolute h-full w-full"
-              alt={alt}
-              style={{
-                width: '100%',
-                height: 'auto',
-              }}
-              width={500}
-              height={300}
-              sizes={sizes}
-              src={rightImageUrl}
-              placeholder="blur"
-              blurDataURL={previewRightImageUrl}
-            />
-          )}
-        </div>
+        <MotionWrapper variants={slideUp} delay={0.6}>
+          <div
+            className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}
+          >
+            {leftImageUrl && (
+              <Image
+                className="absolute h-full w-full"
+                alt={alt}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+                width={500}
+                height={300}
+                sizes={sizes}
+                src={leftImageUrl}
+                placeholder="blur"
+                blurDataURL={previewLeftImageUrl}
+              />
+            )}
+          </div>
+        </MotionWrapper>
+        <MotionWrapper variants={slideUp} delay={0.6}>
+          <div
+            className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}
+          >
+            {rightImageUrl && (
+              <Image
+                className="absolute h-full w-full"
+                alt={alt}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+                width={500}
+                height={300}
+                sizes={sizes}
+                src={rightImageUrl}
+                placeholder="blur"
+                blurDataURL={previewRightImageUrl}
+              />
+            )}
+          </div>
+        </MotionWrapper>
       </div>
       {caption && (
         <div className="mt-2 md:mt-4 text-lg md:text-2xl">{caption}</div>

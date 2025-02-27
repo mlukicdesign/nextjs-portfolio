@@ -33,8 +33,14 @@ export default function Footer(props: FooterProps) {
               mlukicdesign@gmail.com
             </a>
             <div className="flex flex-row gap-4">
-              <Button buttonText="LinkedIn" link="#" />
-              <Button buttonText="Explore My Github" link="#" />
+              <Button
+                buttonText="LinkedIn"
+                link="https://linkedin.com/in/mackenzie-lukic-380904147"
+              />
+              <Button
+                buttonText="Explore My Github"
+                link="https://github.com/mlukicdesign"
+              />
             </div>
           </div>
 
