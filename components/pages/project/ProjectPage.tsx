@@ -64,7 +64,7 @@ export function ProjectPage({
       </div>
       {/* className="fixed h-full w-full object-cover radial-gradient" */}
       <div className="pb-72 space-y-6 bg-void mx-auto">
-        <div className="flex flex-wrap justify-between flex-col md:flex-row fluid-container">
+        <div className="w-full mx-auto flex flex-wrap justify-between flex-col md:flex-row fluid-container">
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
             <div>
@@ -99,20 +99,10 @@ export function ProjectPage({
               <span className="text-sm text-gray-500 tracking-widest capitalize">
                 VIEW FULL SITE
               </span>
-              <div className="py-2 border-t border-gray-500">
+              <div className="py-4 border-t border-gray-500">
                 {/* Site */}
                 {site && (
-                  <div className="mt-3">
-                    {site && (
-                      <Link
-                        target="_blank"
-                        className="text-xl break-words md:text-2xl underline"
-                        href={site.url}
-                      >
-                        {site.urltitle}
-                      </Link>
-                    )}
-                  </div>
+                  <Button buttonText="View full website" link={site?.url} />
                 )}
               </div>
             </div>
@@ -120,7 +110,7 @@ export function ProjectPage({
           <div className="w-full lg:w-2/4">
             {/* Overview */}
             {overview && (
-              <div className="mt-4 text-xl md:text-2xl">
+              <div className="mt-4 ~text-xl/3xl text-balance text-gray-200 !leading-relaxed">
                 <CustomPortableText value={overview} />
               </div>
             )}

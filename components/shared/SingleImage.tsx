@@ -1,6 +1,9 @@
-import Image from 'next/image'
+'use client'
 
+import Image from 'next/image'
 import { urlForImage } from '@/sanity/lib/utils'
+import { MotionWrapper } from './MotionWrapper'
+import { slideUp } from '@/utils/animationStyles'
 
 interface ImageBoxProps {
   image?: { asset?: any; lqip?: any }
@@ -26,27 +29,31 @@ export default function ImageBox({
   const imageUrl = image && urlForImage(image)?.url()
 
   return (
-    <div className="mt-5 md:mt-10">
-      <div className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}>
-        {imageUrl && (
-          <Image
-            alt={alt}
-            sizes={size}
-            style={{
-              width: '100%',
-              height: 'auto',
-            }}
-            width={width}
-            height={height}
-            src={imageUrl}
-            placeholder="blur"
-            blurDataURL={previewImageUrl}
-          />
+    <MotionWrapper variants={slideUp} delay={0.6}>
+      <div className="mt-5 md:mt-10">
+        <div
+          className={`w-full overflow-hidden rounded-[3px] ${classesWrapper}`}
+        >
+          {imageUrl && (
+            <Image
+              alt={alt}
+              sizes={size}
+              style={{
+                width: '100%',
+                height: 'auto',
+              }}
+              width={width}
+              height={height}
+              src={imageUrl}
+              placeholder="blur"
+              blurDataURL={previewImageUrl}
+            />
+          )}
+        </div>
+        {caption && (
+          <div className="mt-2 md:mt-4 text-lg md:text-2xl">{caption}</div>
         )}
       </div>
-      {caption && (
-        <div className="mt-2 md:mt-4 text-lg md:text-2xl">{caption}</div>
-      )}
-    </div>
+    </MotionWrapper>
   )
 }
