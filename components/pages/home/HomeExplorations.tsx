@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { MotionWrapper } from '@/components/shared/MotionWrapper'
+import { slideUp } from '@/utils/animationStyles'
+import Button from '@/components/shared/IconButton'
 
 interface LoopCarouselProps {
   explorationCarousel?: { url: string; _key: string }[]
@@ -44,7 +47,7 @@ export default function HomeExplorations({
         slidesPerView={2}
         loop={true}
         centeredSlides={true}
-        spaceBetween={75}
+        spaceBetween={160}
         speed={1200}
         autoplay={{
           delay,
@@ -60,8 +63,8 @@ export default function HomeExplorations({
           >
             <Image
               src={url}
-              width={100}
-              height={100}
+              width={80}
+              height={80}
               alt="Exploration Image"
               className="cover"
             />
@@ -75,16 +78,24 @@ export default function HomeExplorations({
   return (
     <div className="bg-void w-screen">
       <div className="fluid-container mx-auto flex md:flex-row flex-col justify-between">
-        <div className="md:w-1/2 w-full">
+        <MotionWrapper
+          variants={slideUp}
+          delay={0.6}
+          className="md:w-1/2 w-full"
+        >
           <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right font-arbeit mb-8">
             Explorations
           </h2>
-          <p className="text-balance ~text-lg/xl font-arbeit">
+          <p className="text-balance ~text-lg/xl font-arbeit mb-8">
             Intrigue and passion drive a passion for learning. Here are a few
             tools & technologies I’m currently, learning, experimenting, or even
             breaking.
           </p>
-        </div>
+          <Button
+            buttonText="View my Github"
+            link="https://github.com/mlukicdesign"
+          />
+        </MotionWrapper>
         <div className="md:w-1/2 w-full flex flex-row gap-24 justify-center">
           <CarouselInstance images={carousel1Images} delay={2000} />
           <CarouselInstance

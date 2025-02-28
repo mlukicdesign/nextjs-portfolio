@@ -21,9 +21,9 @@ interface ImageBoxProps {
 export default function ImageBox({
   image,
   alt = 'Cover image',
-  width = 3500,
-  height = 2000,
-  size = '(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw',
+  width = 1728,
+  height = 1080,
+  size = '(min-width: 1728x) 33vw, (min-width: 768px) 50vw, 100vw',
   classesWrapper,
   previewImageUrl = image?.lqip,
   ...props
