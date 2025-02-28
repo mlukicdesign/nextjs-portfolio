@@ -56,11 +56,15 @@ export default function Navbar(props: NavbarProps) {
             </div>
           </Link>
         ) : (
-          <Link href={`/`} className={`~text-sm/xl`}>
-            {title}
+          <Link
+            href={`/`}
+            className={`~text-sm/lg cursor-pointer hover:text-ion-400 transition-all px-3 py-1`}
+          >
+            <span className="hidden md:inline">{title}</span>
+            <span className="md:hidden">ML</span>
           </Link>
         )}
-        <div className="flex flex-wrap gap-3 mt-4 md:mt-0 items-center">
+        <div className="flex flex-wrap gap-3 md:mt-0 items-center">
           {menuPages &&
             menuPages.map((menuItem, key) => {
               const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -87,26 +91,26 @@ export default function Navbar(props: NavbarProps) {
             })}
           <Link
             href="/about"
-            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer`}
+            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer hover:text-ion-400 transition-all`}
           >
             About
           </Link>
           <Link
-            href="#projects"
-            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer`}
+            href="/#projects"
+            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer hover:text-ion-400 transition-all`}
           >
             Projects
           </Link>
           <Link
-            href="#contact-form"
-            className={`~text-sm/lg px-3 py-1 text-white font-arbeit cursor-pointer`}
+            href="/#contact-form"
+            className={`~text-sm/lg px-3 py-1 text-white font-arbeit cursor-pointer hover:text-ion-400 transition-all`}
           >
             Contact
           </Link>
 
           <a href="mailto:mlukicdesign@gmail.com">
             <div
-              className="flex w-[66px] h-[66px] justify-center items-center gap-[10px] flex-shrink-0"
+              className="flex w-[66px] h-[66px] justify-center items-center gap-[10px] flex-shrink-0 hover:text-ion-400 transition-all"
               style={{
                 borderRadius: '100px',
                 border: '1px solid rgba(255, 255, 255, 0.20)',

@@ -56,15 +56,15 @@ export function ProjectPage({
   return (
     <div>
       {/* Header */}
-      <div className="md:h-[400px] h-[100px] bg-red-500 flex flex-col justify-end radial-gradient">
+      <div className="h-[400px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-2xl/5xl font-arbeit text-white">{title}</div>
+            <div className="~text-3xl/5xl font-arbeit text-white">{title}</div>
           )}
         </div>
       </div>
       {/* className="fixed h-full w-full object-cover radial-gradient" */}
-      <div className="pb-72 space-y-6 bg-void mx-auto">
+      <div className="pb-24 space-y-6 bg-void mx-auto">
         <div className="w-full mx-auto flex flex-wrap justify-between flex-col md:flex-row fluid-container">
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
@@ -73,7 +73,7 @@ export function ProjectPage({
                 AGENCY
               </span>
               {/* Year changing to agency */}
-              <div className="py-2 border-t border-gray-500">
+              <div className="py-8 border-t border-gray-500">
                 {year && (
                   <div className="md:mt-2 text-lg md:text-2xl">{year}</div>
                 )}
@@ -84,9 +84,9 @@ export function ProjectPage({
               <span className="text-sm text-gray-500 tracking-widest capitalize">
                 SOLUTION & SERVICES
               </span>
-              <div className="py-2 border-t border-gray-500 ">
+              <div className="py-8 border-t border-gray-500 ">
                 {Array.isArray(tags) && (
-                  <div className="md:mt-2 text-lg md:text-2xl">
+                  <div className="md:mt-8 text-lg md:text-2xl">
                     {tags.map((tag, index) => (
                       <span key={index} className={getTagStyle(tag)}>
                         {tag}
@@ -137,7 +137,7 @@ export function ProjectPage({
           ))}
         </div>
 
-        <div className="w-full flex justify-center mx-auto ~py-64/32">
+        <div className="w-full flex justify-center mx-auto ~py-8/16">
           <Button buttonText="View full website" link={site?.url} />
         </div>
 

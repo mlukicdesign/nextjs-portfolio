@@ -93,10 +93,11 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
                   >
                     <Image
                       src={logo.url}
-                      alt={logo.alt || 'Design Technology Logo'}
+                      alt={logo.alt || 'Design Logo'}
                       width={100} // Adjust as needed
                       height={100} // Adjust as needed
-                      className="object-contain p-2 group-hover:scale-105 transition-all"
+                      className="object-contain max-w-[60px]  py-2 group-hover:scale-105 transition-all"
+                      priority={true} // ✅ Optional: Faster loading
                     />
                   </motion.div>
                 </div>

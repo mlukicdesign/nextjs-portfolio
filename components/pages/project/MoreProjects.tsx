@@ -13,7 +13,7 @@ export function MoreProjects(props: ProjectProps) {
   const { previous, next } = props
 
   return (
-    <div className="flex justify-between gap-x-5 pt-8 md:pt-20">
+    <div className="flex justify-between gap-x-5 ~pt-4/24">
       {/* Previous project */}
       <div className="w-full">
         {previous && (
