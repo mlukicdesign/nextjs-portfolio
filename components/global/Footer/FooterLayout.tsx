@@ -4,6 +4,8 @@ import type { HomePagePayload, SettingsPayload } from '@/types'
 import { motion } from 'framer-motion'
 import { cubicBezier } from 'framer-motion'
 import Button from '@/components/shared/IconButton'
+import { MotionWrapper } from '@/components/shared/MotionWrapper'
+import { slideUp } from '@/utils/animationStyles'
 
 interface FooterProps {
   data: SettingsPayload
@@ -19,7 +21,11 @@ export default function Footer(props: FooterProps) {
   return (
     <footer className="bg-void mx-auto w-screen">
       <div className="flex flex-col w-full justify-between md:h-[400px] fluid-container-x pb-4">
-        <div className="flex md:flex-row flex-col pb-16 justify-between">
+        <MotionWrapper
+          variants={slideUp}
+          delay={0.4}
+          className="flex md:flex-row flex-col pb-16 justify-between"
+        >
           {/* Right Column */}
 
           <div className="flex flex-col gap-6 max-md:pb-8">
@@ -58,10 +64,14 @@ export default function Footer(props: FooterProps) {
               clients and agencies.
             </span>
           </div>
-        </div>
-        <div className="flex h-full w-full flex-row justify-between items-end gap-12 bg-void">
+        </MotionWrapper>
+        <MotionWrapper
+          variants={slideUp}
+          delay={1.8}
+          className="flex h-full w-full flex-row justify-between items-end gap-12 bg-void"
+        >
           <div className="w-[80%]">
-            <span>Perth, Western Australia</span>
+            <span className="pb-4">Perth, Western Australia</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="auto"
@@ -288,7 +298,7 @@ export default function Footer(props: FooterProps) {
               © {title} {new Date().getFullYear()}
             </div>
           )}
-        </div>
+        </MotionWrapper>
       </div>
     </footer>
   )

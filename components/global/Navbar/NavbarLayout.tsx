@@ -58,12 +58,13 @@ export default function Navbar(props: NavbarProps) {
         ) : (
           <Link
             href={`/`}
-            className={`~text-xs/xl cursor-pointer hover:text-ion-400 transition-all`}
+            className={`~text-sm/lg cursor-pointer hover:text-ion-400 transition-all px-3 py-1`}
           >
-            {title}
+            <span className="hidden md:inline">{title}</span>
+            <span className="md:hidden">ML</span>
           </Link>
         )}
-        <div className="flex flex-wrap gap-3 mt-4 md:mt-0 items-center">
+        <div className="flex flex-wrap gap-3 md:mt-0 items-center">
           {menuPages &&
             menuPages.map((menuItem, key) => {
               const href = resolveHref(menuItem?._type, menuItem?.slug)

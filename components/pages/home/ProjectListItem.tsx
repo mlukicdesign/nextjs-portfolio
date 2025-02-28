@@ -32,7 +32,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
   return (
     <div className="flex flex-wrap justify-between mt-4 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
-      <div className="font-arbeit flex underline ~text-xs/4xl">
+      <div className="font-arbeit flex underline ~text-xs/4xl mb-8">
         {project.title}
       </div>
       <div className="flex">

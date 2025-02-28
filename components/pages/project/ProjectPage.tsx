@@ -64,7 +64,7 @@ export function ProjectPage({
         </div>
       </div>
       {/* className="fixed h-full w-full object-cover radial-gradient" */}
-      <div className="pb-72 space-y-6 bg-void mx-auto">
+      <div className="pb-24 space-y-6 bg-void mx-auto">
         <div className="w-full mx-auto flex flex-wrap justify-between flex-col md:flex-row fluid-container">
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
@@ -137,7 +137,7 @@ export function ProjectPage({
           ))}
         </div>
 
-        <div className="w-full flex justify-center mx-auto ~py-24/32">
+        <div className="w-full flex justify-center mx-auto ~py-8/16">
           <Button buttonText="View full website" link={site?.url} />
         </div>
 
