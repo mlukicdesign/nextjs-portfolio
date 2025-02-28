@@ -94,9 +94,10 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
                     <Image
                       src={logo.url}
                       alt={logo.alt || 'Design Technology Logo'}
-                      width={100} // Adjust as needed
-                      height={100} // Adjust as needed
-                      className="object-contain p-2 group-hover:scale-105 transition-all"
+                      width={0} // Set to 0 to allow auto-sizing
+                      height={0} // Set to 0 to allow auto-sizing
+                      sizes="(max-width: 768px) 50px, 100px" // Different sizes based on viewport
+                      className="object-contain p-2 group-hover:scale-105 transition-all w-auto h-auto"
                     />
                   </motion.div>
                 </div>
