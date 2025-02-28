@@ -58,7 +58,15 @@ function TextBox({ project }: { project: ShowcaseProject }) {
                   tagStyle =
                     'text-[#FF7262] text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#200300] border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
                   break
-                default:
+                case 'React':
+                  tagStyle =
+                    'text-[#1986DA] border text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#00121A] mx-1 border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
+                  break
+                case 'Shopify':
+                  tagStyle =
+                    'text-[#64FFC3] border text-arbeit px-6 py-3 rounded-full text-xs font-medium bg-[#013420] mx-1 border border-slate-900 mx-1 hover:opacity-75 transition-opacity duration-300'
+                  break
+                case '':
                   tagStyle =
                     'text-gray-500 px-6 py-3 rounded-full text-xs font-medium hover:opacity-75 bg-slate-200 mx-1 transition-opacity duration-300'
               }

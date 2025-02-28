@@ -8,6 +8,7 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import type { AboutPayload } from '@/types'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn, slideUp } from '@/utils/animationStyles'
+import HomeContact from '../home/HomeContact'
 
 export interface AboutPageProps {
   data: AboutPayload | null
@@ -21,14 +22,14 @@ export function AboutPage({ data }: AboutPageProps) {
   return (
     <div>
       {/* Header */}
-      <div className="md:h-[400px] h-[100px] bg-red-500 flex flex-col justify-end radial-gradient">
+      <div className="md:h-[400px] h-[300px] bg-red-500 flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
             <div className="~text-2xl/5xl font-arbeit text-white">{title}</div>
           )}
         </div>
       </div>
-      <div className="fluid-container mx-auto flex flex-col justify-center items-center bg-void">
+      <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
         {/* Title
         <div>{title && title}</div> */}
 
@@ -80,6 +81,7 @@ export function AboutPage({ data }: AboutPageProps) {
           className="fixed h-full w-full object-cover radial-gradient"
         />
       </div>
+      <HomeContact />
     </div>
   )
 }

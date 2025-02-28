@@ -46,7 +46,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Showcase projects */}
       {/* Map over projects and parse to ProjectListItem component */}
 
-      <div className="fluid-container-x bg-void">
+      <div id="projects" className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
           <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 font-arbeit">
             A Collection <br /> of Recent Works

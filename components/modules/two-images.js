@@ -10,7 +10,7 @@ const Image = ({ data = {} }) => {
         leftImage={photoOne}
         rightImage={photoTwo}
         caption={caption}
-        classesWrapper="relative aspect-[16/10]"
+        classesWrapper="relative aspect-[16/9]"
       />
     </div>
   )

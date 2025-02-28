@@ -85,6 +85,25 @@ export default function Navbar(props: NavbarProps) {
                 </Link>
               )
             })}
+          <Link
+            href="/about"
+            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer`}
+          >
+            About
+          </Link>
+          <Link
+            href="#projects"
+            className={`text-white ~text-sm/lg px-3 py-1 font-arbeit cursor-pointer`}
+          >
+            Projects
+          </Link>
+          <Link
+            href="#contact-form"
+            className={`~text-sm/lg px-3 py-1 text-white font-arbeit cursor-pointer`}
+          >
+            Contact
+          </Link>
+
           <a href="mailto:mlukicdesign@gmail.com">
             <div
               className="flex w-[66px] h-[66px] justify-center items-center gap-[10px] flex-shrink-0"

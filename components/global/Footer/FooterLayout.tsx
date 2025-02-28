@@ -19,10 +19,10 @@ export default function Footer(props: FooterProps) {
   return (
     <footer className="bg-void mx-auto w-screen">
       <div className="flex flex-col w-full justify-between md:h-[400px] fluid-container-x pb-4">
-        <div className="flex flex-row justify-between">
+        <div className="flex md:flex-row flex-col pb-16 justify-between">
           {/* Right Column */}
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 max-md:pb-8">
             <span className="uppercase text-gray-600 tracking-widest font-arbeit">
               Stay Connected
             </span>
@@ -59,14 +59,14 @@ export default function Footer(props: FooterProps) {
             </span>
           </div>
         </div>
-        <div className="flex w-full flex-row justify-between items-end gap-12">
+        <div className="flex h-full w-full flex-row justify-between items-end gap-12 bg-void">
           <div className="w-[80%]">
             <span>Perth, Western Australia</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="full"
-              height="104"
-              viewBox="0 0 1275 104"
+              width="auto"
+              height="auto"
+              viewBox="0 0 1449 104"
               fill="none"
             >
               <path

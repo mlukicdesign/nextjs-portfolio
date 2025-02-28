@@ -22,6 +22,7 @@ export const getTagStyle = (tag: string): string => {
     PHP: 'text-[#A259FF] bg-[#10061E]',
     Design: 'text-[#0ACF83] bg-[#011E13]',
     Headless: 'text-[#FF7262] bg-[#200300]',
+    Shopify: 'text-[#64FFC3] bg-[#013420]',
   }
 
   return styles[tag]
