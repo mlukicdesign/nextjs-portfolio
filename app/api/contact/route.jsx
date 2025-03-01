@@ -6,9 +6,9 @@ const nodemailer = require('nodemailer');
 export async function POST(request) {
 
     {/* Grab the email and password from the environment variables */}
-    const username = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
-    const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
-    const myEmail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
+    const username = process.env.GMAIL_EMAIL_USERNAME;
+    const password = process.env.GMAIL_EMAIL_PASSWORD;
+    const myEmail = process.env.GMAIL_PERSONAL_EMAIL;
 
 
 
