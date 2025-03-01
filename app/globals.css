@@ -4,9 +4,13 @@
 
 @font-face {
   font-family: 'Arbeit';
-  src: url('/public/fonts/Arbeit-Variable.ttf') format('ttf');
+  src: url('/fonts/Arbeit-Variable.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+}
+
+.font-arbeit {
+  font-family: 'Arbeit', sans-serif;
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
