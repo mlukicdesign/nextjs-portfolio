@@ -86,7 +86,7 @@ export default function HomeExplorations({
           <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right font-arbeit mb-8">
             Explorations
           </h2>
-          <p className="text-balance ~text-lg/xl font-arbeit mb-8">
+          <p className="text-balance ~text-lg/xl font-arbeit !mb-8">
             Intrigue and passion drive a passion for learning. Here are a few
             tools & technologies I’m currently, learning, experimenting, or even
             breaking.

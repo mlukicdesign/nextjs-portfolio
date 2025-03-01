@@ -24,7 +24,7 @@ export function HomeIntro(props: IntroProps) {
         <MotionWrapper
           variants={slideUp}
           delay={0.6}
-          className="~text-3xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
+          className="~text-4xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient"
         >
           {description.displayText == true && (
             <CustomPortableText value={description.text} />

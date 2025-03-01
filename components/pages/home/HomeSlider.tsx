@@ -64,7 +64,7 @@ export default function HomeSlider({
         {sliderProjects.map(({ _key, url }) => (
           <div
             key={_key}
-            className="md:w-1/4 md:h-[20vw] w-1/2 h-[50vw] flex items-center justify-center bg-void ~p-2/4"
+            className="md:w-1/4 md:h-[20vw] w-1/2 h-[40vw] flex items-center justify-center bg-void ~p-2/4"
           >
             <div className="relative w-full md:h-4/5 h-1/2 aspect-video">
               <Image
@@ -87,7 +87,7 @@ export default function HomeSlider({
         {secondSliderProjects.map(({ _key, url }) => (
           <div
             key={_key}
-            className="md:w-1/4 md:h-[20vw] w-1/2 h-[50vw] flex items-center justify-center bg-void ~p-2/4"
+            className="md:w-1/4 md:h-[20vw] w-1/2 h-[40vw] flex items-center justify-center bg-void ~p-2/4"
           >
             <div className="relative w-full md:h-4/5 h-1/2 aspect-video p-4">
               <Image

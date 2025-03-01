@@ -40,8 +40,13 @@ export default function Navbar(props: NavbarProps) {
   }
 
   return (
-    <motion.div variants={navAnimation} initial="hidden" animate="visible">
-      <div className="flex flex-wrap w-full justify-between items-center gap-x-5 ~px-6/12 h-[100px]">
+    <motion.div
+      variants={navAnimation}
+      initial="hidden"
+      animate="visible"
+      className="fixed z-100 top-0 w-full"
+    >
+      <div className="flex w-full justify-between items-center gap-x-5 ~px-6/12 h-[100px] bg-gradient-to-b from-void/80 to-void/0 bg-blend-multiply">
         {customLogo && customLogo ? (
           <Link href={`/`} className={`~text-sm/xl`}>
             <div className="flex h-6">
@@ -110,7 +115,7 @@ export default function Navbar(props: NavbarProps) {
 
           <a href="mailto:mlukicdesign@gmail.com">
             <div
-              className="flex w-[66px] h-[66px] justify-center items-center gap-[10px] flex-shrink-0 hover:text-ion-400 transition-all"
+              className="flex w-[45px] h-[45px] justify-center items-center gap-[10px] flex-shrink-0 hover:text-ion-400 transition-all"
               style={{
                 borderRadius: '100px',
                 border: '1px solid rgba(255, 255, 255, 0.20)',
