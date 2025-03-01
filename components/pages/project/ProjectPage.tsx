@@ -59,7 +59,7 @@ export function ProjectPage({
       <div className="h-[400px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-3xl/5xl font-arbeit text-white">{title}</div>
+            <div className="~text-4xl/5xl font-arbeit text-white">{title}</div>
           )}
         </div>
       </div>
@@ -111,7 +111,7 @@ export function ProjectPage({
           <div className="w-full lg:w-2/4">
             {/* Overview */}
             {overview && (
-              <div className="mt-4 ~text-xl/3xl text-balance text-gray-200 !leading-relaxed">
+              <div className="mt-4 ~text-lg/3xl text-balance text-gray-100 !leading-relaxed">
                 <CustomPortableText value={overview} />
               </div>
             )}

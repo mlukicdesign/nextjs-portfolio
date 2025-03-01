@@ -65,11 +65,7 @@ export default function Footer(props: FooterProps) {
             </span>
           </div>
         </MotionWrapper>
-        <MotionWrapper
-          variants={slideUp}
-          delay={1.8}
-          className="flex h-full w-full flex-row justify-between items-end gap-12 bg-void"
-        >
+        <div className="flex h-full w-full md:flex-row flex-col justify-between md:items-end gap-12 bg-void">
           <div className="w-[80%]">
             <span className="pb-4">Perth, Western Australia</span>
             <svg
@@ -294,11 +290,11 @@ export default function Footer(props: FooterProps) {
             </svg>
           </div>
           {title && (
-            <div className="font-arbeit text-sm w-[20%] flex flex-row justify-end">
+            <div className="font-arbeit text-sm md:w-[20%] w-full flex flex-row justify-start md:justify-end">
               © {title} {new Date().getFullYear()}
             </div>
           )}
-        </MotionWrapper>
+        </div>
       </div>
     </footer>
   )
