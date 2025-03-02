@@ -17,7 +17,7 @@ export default function Header(props: TextBoxProps) {
       <div className="fluid-container">
         {/* Description */}
         {description && (
-          <div className="text-center ~text-lg/3xl text-gray-300 !leading-relaxed text-balance font-arbeit max-w-[1200px] mx-auto">
+          <div className="text-center ~text-lg/3xl text-slate-200 !leading-relaxed text-balance font-arbeit max-w-[1200px] mx-auto">
             <CustomPortableText value={description} />
           </div>
         )}

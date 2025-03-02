@@ -59,7 +59,9 @@ export function ProjectPage({
       <div className="h-[400px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-4xl/5xl font-arbeit text-white">{title}</div>
+            <div className="~text-4xl/5xl font-arbeit text-white capitalize font-semibold">
+              {title}
+            </div>
           )}
         </div>
       </div>
@@ -69,11 +71,11 @@ export function ProjectPage({
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
             <div>
-              <span className="text-sm text-gray-500 tracking-widest capitalize">
+              <span className="text-sm text-slate-500 tracking-widest capitalize">
                 AGENCY
               </span>
               {/* Year changing to agency */}
-              <div className="py-8 border-t border-gray-500">
+              <div className="py-2 border-t border-gray-500">
                 {year && (
                   <div className="md:mt-2 text-lg md:text-2xl">{year}</div>
                 )}
@@ -81,12 +83,12 @@ export function ProjectPage({
             </div>
             {/* Tags */}
             <div>
-              <span className="text-sm text-gray-500 tracking-widest capitalize">
+              <span className="text-sm text-slate-500 tracking-widest capitalize">
                 SOLUTION & SERVICES
               </span>
-              <div className="py-8 border-t border-gray-500 ">
+              <div className="py-2 border-t border-gray-500 ">
                 {Array.isArray(tags) && (
-                  <div className="md:mt-8 text-lg md:text-2xl">
+                  <div className="md:mt-4 text-lg md:text-2xl">
                     {tags.map((tag, index) => (
                       <span key={index} className={getTagStyle(tag)}>
                         {tag}
@@ -97,7 +99,7 @@ export function ProjectPage({
               </div>
             </div>
             <div>
-              <span className="text-sm text-gray-500 tracking-widest capitalize">
+              <span className="text-sm text-slate-500 tracking-widest capitalize">
                 VIEW FULL SITE
               </span>
               <div className="py-4 border-t border-gray-500">
@@ -111,7 +113,7 @@ export function ProjectPage({
           <div className="w-full lg:w-2/4">
             {/* Overview */}
             {overview && (
-              <div className="mt-4 ~text-lg/3xl text-balance text-gray-100 !leading-relaxed">
+              <div className="mt-4 ~text-lg/3xl text-balance text-slate-200 !leading-relaxed">
                 <CustomPortableText value={overview} />
               </div>
             )}
@@ -130,14 +132,14 @@ export function ProjectPage({
           />
         </div>
 
-        <div>
+        <div className="~pb-12/32 ~px-0/4 max-w-[2500px] mx-auto w-full">
           {/* Display project content by type */}
           {content?.map((content, key) => (
             <Module key={key} content={content} />
           ))}
         </div>
 
-        <div className="w-full flex justify-center mx-auto ~py-8/16">
+        <div className="w-full flex justify-center mx-auto ~py-2/4">
           <Button buttonText="View full website" link={site?.url} />
         </div>
 

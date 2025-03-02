@@ -2,6 +2,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden !important;
+  overflow-y: hidden !important;
 }
 
 p:not(:last-child) {
@@ -30,7 +31,7 @@ ol {
 }
 
 .fluid-container {
-  @apply ~py-12/32 ~px-4/12 max-w-[1700px];
+  @apply ~py-12/32 ~px-4/12 max-w-[1700px] mx-auto w-full;
 }
 
 .fluid-container-x {
