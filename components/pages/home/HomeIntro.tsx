@@ -35,8 +35,8 @@ export function HomeIntro(props: IntroProps) {
           delay={1}
           className="w-full items-end justify-end flex flex-col"
         >
-          <div className="flex flex-col max-w-[600px] lg:w-1/2 gap-8">
-            <p className="font-arbeit text-pretty ~text-lg/xl text-gray-200 leading-loose w-full">
+          <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
+            <p className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 leading-relaxed w-full">
               {description.introParagraph}
             </p>
             <Button buttonText="Read More" link="/about" />
