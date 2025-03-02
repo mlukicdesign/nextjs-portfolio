@@ -30,7 +30,7 @@ ol {
 }
 
 .fluid-container {
-  @apply ~py-12/32 ~px-4/12 max-w-[1700px];
+  @apply ~py-12/32 ~px-4/12 max-w-[1700px] mx-auto w-full;
 }
 
 .fluid-container-x {
