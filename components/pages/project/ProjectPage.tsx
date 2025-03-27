@@ -74,7 +74,7 @@ export function ProjectPage({
               <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 YEAR COMPLETED
               </span>
-              {/* Year changing to agency */}
+
               <div className="py-2 border-t border-gray-500">
                 {year && (
                   <div className="md:mt-2 text-lg md:text-2xl">{year}</div>
