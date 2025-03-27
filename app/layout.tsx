@@ -25,7 +25,10 @@ export default async function RootLayout({
       }}
       className={`bg-primary font-arbeit`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
