@@ -25,7 +25,9 @@ export function AboutPage({ data }: AboutPageProps) {
       <div className="md:h-[400px] h-[300px] bg-red-500 flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-4xl/5xl font-arbeit text-white">{title}</div>
+            <div className="~text-4xl/5xl font-arbeit text-white font-medium uppercase">
+              {title}
+            </div>
           )}
         </div>
       </div>
