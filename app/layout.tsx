@@ -2,6 +2,7 @@ import './globals.css'
 
 // import { Inter } from 'next/font/google'
 import { loadSettings } from '@/sanity/loader/loadQuery'
+// Import Analytics from Vercel
 import { Analytics } from '@vercel/analytics/react'
 
 export default async function RootLayout({
