@@ -83,7 +83,7 @@ export default function HomeExplorations({
           delay={0.6}
           className="md:w-1/2 w-full"
         >
-          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right font-arbeit mb-8">
+          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right font-arbeit font-medium mb-8">
             Explorations
           </h2>
           <p className="text-balance ~text-lg/xl font-arbeit !mb-8">
