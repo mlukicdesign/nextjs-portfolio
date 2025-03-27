@@ -2,6 +2,7 @@ import './globals.css'
 
 // import { Inter } from 'next/font/google'
 import { loadSettings } from '@/sanity/loader/loadQuery'
+import { Analytics } from '@vercel/analytics/react'
 
 export default async function RootLayout({
   children,
