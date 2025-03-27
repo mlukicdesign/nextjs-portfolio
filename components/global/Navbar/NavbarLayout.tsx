@@ -46,7 +46,7 @@ export default function Navbar(props: NavbarProps) {
       animate="visible"
       className="fixed z-100 top-0 w-full"
     >
-      <div className="flex w-full justify-between items-center gap-x-5 ~px-6/12 h-[100px] bg-gradient-to-b from-void/80 to-void/0 bg-blend-multiply">
+      <div className="flex w-full justify-between items-center gap-x-5 ~px-6/12 h-[100px] bg-gradient-to-b from-void/80 to-void/0 bg-blend-multiply font-medium">
         {customLogo && customLogo ? (
           <Link href={`/`} className={`~text-sm/xl`}>
             <div className="flex h-6">
@@ -63,7 +63,7 @@ export default function Navbar(props: NavbarProps) {
         ) : (
           <Link
             href={`/`}
-            className={`~text-sm/lg cursor-pointer hover:text-ion-400 transition-all px-3 py-1`}
+            className={`~text-sm/lg cursor-pointer hover:text-ion-400 transition-all px-3 py-1 !font-bold`}
           >
             <span className="hidden md:inline">{title}</span>
             <span className="md:hidden">ML</span>

@@ -50,7 +50,7 @@ export default function HomeSlider({
           delay={1}
           className="!pb-64 text-center max-w-[800px] mx-auto"
         >
-          <h2 className=" text-gradient font-arbiet ~text-4xl/6xl">
+          <h2 className=" text-gradient font-arbiet font-medium ~text-4xl/6xl">
             {sliderTitle}
           </h2>
         </MotionWrapper>

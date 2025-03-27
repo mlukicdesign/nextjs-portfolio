@@ -39,7 +39,7 @@ export default function HomeContact() {
       <div className="fluid-container flex flex-col justify-center items-center mx-auto">
         <div className="w-full">
           <MotionWrapper variants={slideUp}>
-            <h2 className="md:w-2/3 w-full text-gradient ~text-3xl/5xl font-arbeit text-balance">
+            <h2 className="md:w-2/3 w-full text-gradient ~text-3xl/5xl font-arbeit text-balance font-medium">
               Questions, musings, or feedback? I’m all ears (and emails).
             </h2>
           </MotionWrapper>

@@ -59,7 +59,7 @@ export function ProjectPage({
       <div className="h-[400px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-4xl/5xl font-arbeit text-white capitalize font-semibold">
+            <div className="~text-4xl/5xl font-arbeit text-white capitalize font-medium">
               {title}
             </div>
           )}
@@ -71,8 +71,8 @@ export function ProjectPage({
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
             <div>
-              <span className="text-sm text-slate-500 tracking-widest capitalize">
-                AGENCY
+              <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
+                YEAR COMPLETED
               </span>
               {/* Year changing to agency */}
               <div className="py-2 border-t border-gray-500">
@@ -83,7 +83,7 @@ export function ProjectPage({
             </div>
             {/* Tags */}
             <div>
-              <span className="text-sm text-slate-500 tracking-widest capitalize">
+              <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 SOLUTION & SERVICES
               </span>
               <div className="py-2 border-t border-gray-500 ">
@@ -99,7 +99,7 @@ export function ProjectPage({
               </div>
             </div>
             <div>
-              <span className="text-sm text-slate-500 tracking-widest capitalize">
+              <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 VIEW FULL SITE
               </span>
               <div className="py-4 border-t border-gray-500">

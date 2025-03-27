@@ -27,7 +27,7 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
     <div className="radial-gradient w-screen">
       <div className="fluid-container mx-auto">
         <MotionWrapper variants={fadeIn} delay={1} className="">
-          <h2 className="text-gradient ~text-3xl/6xl mb-16 font-arbeit">
+          <h2 className="text-gradient ~text-3xl/6xl mb-16 font-arbeit font-medium">
             Design, Code, Deliver.
             <br />
             Every layer counts.
@@ -37,7 +37,9 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
         {/* Design Grid */}
         <div className="mb-16">
           <div className="flex border-b border-neutral-200">
-            <h4 className="~text-sm/2xl font-arbeit pb-2">DESIGN</h4>
+            <h4 className="~text-sm/2xl font-arbeit pb-2 font-medium">
+              DESIGN
+            </h4>
           </div>
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
@@ -73,7 +75,9 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
         {/* Development Grid */}
         <div className="mb-16">
           <div className="flex border-b border-neutral-200">
-            <h4 className="~text-sm/2xl font-arbeit pb-2">DEVELOPMENT</h4>
+            <h4 className="~text-sm/2xl font-arbeit pb-2 font-medium">
+              DEVELOPMENT
+            </h4>
           </div>
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
