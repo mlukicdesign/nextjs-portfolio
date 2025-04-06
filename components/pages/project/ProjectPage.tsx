@@ -36,7 +36,7 @@ export function ProjectPage({
   encodeDataAttribute,
 }: ProjectPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  //Safely destructures project data (`year`, `overview`, `site`, `title`, `content`, `slug`, `tags`) from the `data` prop, defaulting to an empty object if data is null.
+  // Safely destructures project data (`year`, `overview`, `site`, `title`, `content`, `slug`, `tags`) from the `data` prop, defaulting to an empty object if data is null.
   const { year, overview, site, title, content, slug, tags = [] } = data ?? {}
 
   // Get a list of showcased projects

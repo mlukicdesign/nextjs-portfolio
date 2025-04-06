@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 
 // On load fade in animation setup
-const duration = 0.4
+const duration = 0.6
 const variants = {
   initial: {
     opacity: 0,
