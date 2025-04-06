@@ -55,6 +55,7 @@ export interface HomePagePayload {
   sliderProjects?: Image
   secondSliderProjects?: Image
   explorationCarousel?: Image
+  customLogo?: Image
 }
 
 export interface ProjectPayload {
