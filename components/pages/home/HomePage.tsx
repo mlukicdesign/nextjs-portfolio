@@ -16,7 +16,7 @@ import HomeExplorations from './HomeExplorations'
 import HomeContact from './HomeContact'
 
 export interface HomePageProps {
-  data: HomePagePayload | null
+  data: HomePagePayload
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
 
@@ -48,7 +48,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       <div id="projects" className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
-          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right -mb-16 mt-16 xl:mt-0 font-sans font-medium">
+          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right lg:-mb-16 sm:mb-0 mt-6 md:mt-16 xl:mt-0 font-medium">
             A Collection <br /> of Recent Works
           </h2>
         </div>

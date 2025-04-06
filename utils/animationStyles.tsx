@@ -6,7 +6,7 @@ const easing = cubicBezier(0, 0.55, 0.45, 1)
 // Fade-in animation
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8, ease: easing } },
+  visible: { opacity: 1, transition: { duration: 1.5, ease: easing } },
 }
 
 // Slide-up animation
