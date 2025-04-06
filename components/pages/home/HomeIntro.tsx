@@ -8,11 +8,9 @@ import { fadeIn } from '@/utils/animationStyles'
 import { slideUp } from '@/utils/animationStyles'
 import Button from '@/components/shared/IconButton'
 
-interface IntroProps {
-  description?: any
-}
 
-export function HomeIntro(props: IntroProps) {
+
+export function HomeIntro(props) {
   const { description } = props
   if (!description) {
     return null

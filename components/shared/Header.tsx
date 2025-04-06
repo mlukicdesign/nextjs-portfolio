@@ -3,6 +3,8 @@
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { motion } from 'framer-motion'
 import { cubicBezier } from 'framer-motion'
+import { MotionWrapper } from './MotionWrapper'
+import { fadeIn, slideUp } from '@/utils/animationStyles'
 
 interface HeaderProps {
   headerVideo?: string
@@ -69,8 +71,13 @@ export function Header(props: HeaderProps) {
         </div>
         {/* Gradient overlay */}
 
-        <div className="h-full w-full absolute top-0 -z-30">
+        <MotionWrapper
+          variants={fadeIn}
+          delay={0}
+          className="h-full w-full absolute top-0 -z-30"
+        >
           <div className="absolute z-10 top-0 left-0 w-full h-full radial-gradient"></div>
+          {/* Background video */}
           <video
             src={headerVideo}
             autoPlay
@@ -79,7 +86,7 @@ export function Header(props: HeaderProps) {
             playsInline
             className="fixed h-full w-full object-cover radial-gradient"
           />
-        </div>
+        </MotionWrapper>
       </div>
     </>
   )
