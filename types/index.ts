@@ -46,12 +46,14 @@ export interface HomePagePayload {
   title?: string
   headerVideo?: string
   tags?: string
-  customLogo?: Image
+  techGrid?: {
+    designTech?: { url: string; alt?: string }[]
+    devTech?: { url: string; alt?: string }[]
+  }
   _updatedAt?: string
-  sliderTitle?: any
+  sliderTitle?: string
   sliderProjects?: Image
   secondSliderProjects?: Image
-  techGrid?: any
   explorationCarousel?: Image
 }
 

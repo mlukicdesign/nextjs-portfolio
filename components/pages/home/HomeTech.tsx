@@ -3,13 +3,7 @@ import { motion } from 'framer-motion'
 import { cubicBezier } from 'framer-motion'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
-
-interface TechGridProps {
-  techGrid: {
-    designTech?: { url: string; alt?: string }[]
-    devTech?: { url: string; alt?: string }[]
-  }
-}
+import type { HomePagePayload } from '@/types'
 
 const easing = cubicBezier(0, 0.55, 0.45, 1)
 
@@ -22,7 +16,10 @@ const logoAnimations = {
   }),
 }
 
-const HomeTech = ({ techGrid }: TechGridProps) => {
+const HomeTech = ({ techGrid }: HomePagePayload) => {
+  const designTech = techGrid?.designTech || []
+  const devTech = techGrid?.devTech || []
+
   return (
     <div className="radial-gradient w-screen">
       <div className="fluid-container mx-auto">
@@ -44,7 +41,7 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
             <div className="md:w-2/3 lg:w-2/3 w-full grid grid-cols-4">
-              {techGrid.designTech?.map((logo, index) => (
+              {designTech?.map((logo, index) => (
                 <div
                   key={index} // ✅ Keep key here, remove duplicate
                   className="border border-white border-opacity-50 bg-white/10 backdrop-blur-sm aspect-square flex items-center justify-center group hover:border-opacity-80 transition-all"
@@ -82,7 +79,7 @@ const HomeTech = ({ techGrid }: TechGridProps) => {
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
             <div className="md:w-2/3 lg:w-2/3 w-full grid grid-flow-col grid-rows-2">
-              {techGrid.devTech?.map((logo, index) => (
+              {devTech?.map((logo, index) => (
                 <div
                   key={index}
                   className="border border-white border-opacity-50 bg-white/10 backdrop-blur-sm aspect-square flex items-center justify-center group hover:border-opacity-80 transition-all"
