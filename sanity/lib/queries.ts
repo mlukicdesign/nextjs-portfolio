@@ -73,6 +73,7 @@ export const aboutPageQuery = groq`
   *[_type == "about"][0]{
     _id,
     title,
+    heading,
     customLogo,
     overview,
     aboutImage{

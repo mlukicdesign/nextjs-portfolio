@@ -108,6 +108,7 @@ export interface SettingsPayload {
 export interface AboutPayload {
   overview?: PortableTextBlock[]
   title?: string
+  heading?: string
   aboutImage?: {
     asset: Image
     width: number

@@ -17,12 +17,14 @@ export interface AboutPageProps {
 
 export function AboutPage({ data }: AboutPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { title, overview, aboutImage, aboutLinks } = data ?? {}
+  const { title, heading, overview, aboutImage, aboutLinks } = data ?? {}
+
+  console.log(heading)
 
   return (
     <div>
       {/* Header */}
-      <div className="md:h-[400px] h-[300px] bg-red-500 flex flex-col justify-end radial-gradient">
+      <div className="md:h-[400px] h-[300px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
             <div className="~text-4xl/5xl font-arbeit text-white font-medium uppercase">
@@ -33,11 +35,16 @@ export function AboutPage({ data }: AboutPageProps) {
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
         {/* Title
-        <div>{title && title}</div> */}
+         */}
 
         <MotionWrapper variants={slideUp} delay={0.6}>
+          <div className="~text-lg/4xl !leading-relaxed text-balance font-arbeit justify-center text-gradient">
+            {heading}
+          </div>
+        </MotionWrapper>
+        <MotionWrapper variants={slideUp} delay={0.6}>
           {overview && (
-            <div className="mt-2 ~text-lg/3xl text-gray-300 !leading-relaxed text-balance font-arbeit justify-center max-w-[800px] ">
+            <div className="mt-2 ~text-lg/2xl text-gray-300 ml-36 !leading-relaxed text-balance font-arbeit justify-center max-w-[500px]">
               <CustomPortableText value={overview} />
             </div>
           )}
