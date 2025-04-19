@@ -1,17 +1,55 @@
 'use client'
 
-import React from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
+import React, { useEffect, useRef } from 'react'
+
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { motion } from 'framer-motion'
-import { MotionWrapper } from '@/components/shared/MotionWrapper'
-import { fadeIn } from '@/utils/animationStyles'
-import { slideUp } from '@/utils/animationStyles'
 import Button from '@/components/shared/IconButton'
+import FadeInOnScroll from '@/utils/FadeInOnScroll'
+import SplitTextOnScroll from '@/utils/SplitTextScroll'
+// Removed unused imports: MotionWrapper and fadeIn
 
-
+// Register plugins
+gsap.registerPlugin(SplitText, ScrollTrigger)
 
 export function HomeIntro(props) {
   const { description } = props
+  const textRef = useRef(null)
+  const splitRef = useRef(null)
+
+  useEffect(() => {
+    if (!description?.text || !description?.displayText || !textRef.current)
+      return
+
+    // Split the text
+    splitRef.current = new SplitText(textRef.current, {
+      type: 'lines',
+      tag: 'span',
+      linesClass: 'clip-path: inset(50px -100%)',
+    })
+
+    // GSAP animation with ScrollTrigger
+    gsap.from(splitRef.current.lines, {
+      scrollTrigger: {
+        trigger: textRef.current,
+        start: 'top 80%',
+      },
+      delay: 0.4,
+      opacity: 0,
+      y: 40,
+      stagger: 0.08,
+      duration: 1,
+      ease: 'power2.out',
+    })
+
+    return () => {
+      splitRef.current?.revert()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [description])
+
   if (!description) {
     return null
   }
@@ -19,27 +57,30 @@ export function HomeIntro(props) {
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
-        <MotionWrapper
-          variants={slideUp}
-          delay={0.6}
-          className="~text-4xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient font-medium"
+        <FadeInOnScroll
+          delay={0.3}
+          className="~text-4xl/7xl text-pretty font-arbeit xl:w-3/4 w-full font-medium text-gradient"
         >
-          {description.displayText == true && (
+          {description.displayText === true && (
             <CustomPortableText value={description.text} />
           )}
-        </MotionWrapper>
-        <MotionWrapper
-          variants={fadeIn}
-          delay={1}
-          className="w-full items-end justify-end flex flex-col"
-        >
-          <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
-            <p className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 leading-relaxed w-full">
+        </FadeInOnScroll>
+
+        <div className="w-full items-end justify-end flex flex-col">
+          <SplitTextOnScroll
+            type="lines"
+            delay={0.3}
+            className="flex flex-col max-w-[800px] lg:w-1/2 gap-8"
+          >
+            <p
+              ref={textRef}
+              className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 leading-relaxed w-full"
+            >
               {description.introParagraph}
             </p>
             <Button buttonText="Read More" link="/about" />
-          </div>
-        </MotionWrapper>
+          </SplitTextOnScroll>
+        </div>
       </div>
     </section>
   )
