@@ -8,7 +8,8 @@ import React, { useEffect, useRef } from 'react'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import Button from '@/components/shared/IconButton'
 import FadeInOnScroll from '@/utils/FadeInOnScroll'
-import SplitTextOnScroll from '@/utils/SplitTextScroll'
+import SplitTextOnScroll from '@/utils/SplitWordsScroll'
+import SplitLines from '@/utils/SplitLinesScroll'
 // Removed unused imports: MotionWrapper and fadeIn
 
 // Register plugins
@@ -68,12 +69,12 @@ export function HomeIntro(props) {
 
         <div className="w-full items-end justify-end flex flex-col">
           <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
-            <SplitTextOnScroll
-              delay={0.6}
+            <SplitLines
+              delay={0.4}
               className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 !leading-relaxed w-full"
             >
               {description.introParagraph}
-            </SplitTextOnScroll>
+            </SplitLines>
             <Button buttonText="Read More" link="/about" />
           </div>
         </div>

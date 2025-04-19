@@ -7,7 +7,7 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-export default function SplitTextOnScroll({
+export default function SplitLines({
   children,
   delay = 0,
   duration = 1,
@@ -31,7 +31,6 @@ export default function SplitTextOnScroll({
     splitRef.current = new SplitText(element, {
       type: 'lines',
       tag: 'span',
-      linesClass: 'textClip',
     })
 
     // Animate each line
