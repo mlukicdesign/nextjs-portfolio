@@ -10,7 +10,7 @@ export default function FadeInOnScroll({
   children,
   delay = 0,
   duration = 1,
-  y = 40,
+  y = 50,
   triggerOffset = 'top 80%',
   className = '',
 }) {

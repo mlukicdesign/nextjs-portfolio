@@ -27,7 +27,7 @@ export function HomeIntro(props) {
     splitRef.current = new SplitText(textRef.current, {
       type: 'lines',
       tag: 'span',
-      linesClass: 'clip-path: inset(50px -100%)',
+      linesClass: '',
     })
 
     // GSAP animation with ScrollTrigger
@@ -67,19 +67,15 @@ export function HomeIntro(props) {
         </FadeInOnScroll>
 
         <div className="w-full items-end justify-end flex flex-col">
-          <SplitTextOnScroll
-            type="lines"
-            delay={0.3}
-            className="flex flex-col max-w-[800px] lg:w-1/2 gap-8"
-          >
-            <p
-              ref={textRef}
-              className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 leading-relaxed w-full"
+          <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
+            <SplitTextOnScroll
+              delay={0.6}
+              className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 !leading-relaxed w-full"
             >
               {description.introParagraph}
-            </p>
+            </SplitTextOnScroll>
             <Button buttonText="Read More" link="/about" />
-          </SplitTextOnScroll>
+          </div>
         </div>
       </div>
     </section>

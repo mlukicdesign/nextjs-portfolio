@@ -1,19 +1,23 @@
 'use client'
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { Header } from '@/components/shared/Header'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
+
+import HomeContact from './HomeContact'
+import HomeExplorations from './HomeExplorations'
 import { HomeIntro } from './HomeIntro'
 import HomeSlider from './HomeSlider'
-import { MotionWrapper } from '@/components/shared/MotionWrapper'
-import { slideUp } from '@/utils/animationStyles'
 import HomeTech from './HomeTech'
-import HomeExplorations from './HomeExplorations'
-import HomeContact from './HomeContact'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export interface HomePageProps {
   data: HomePagePayload
@@ -21,7 +25,6 @@ export interface HomePageProps {
 }
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
-  // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [] } = data ?? {}
   const headerVideo = data?.headerVideo
   const sliderTitle = data?.sliderTitle
@@ -36,16 +39,42 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     ? data.explorationCarousel
     : undefined
 
+  // Create array of refs for animation targets
+  const projectRefs = useRef<HTMLAnchorElement[]>([])
+
+  useEffect(() => {
+    projectRefs.current.forEach((el, index) => {
+      if (!el) return
+
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: index * 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+          },
+        },
+      )
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill())
+    }
+  }, [])
+
   return (
-    <div className="">
-      {/* Header */}
-
+    <div>
       {overview && <Header headerVideo={headerVideo} />}
-
       <HomeIntro description={overview} />
-      {/* Showcase projects */}
-      {/* Map over projects and parse to ProjectListItem component */}
 
+      {/* Projects section */}
       <div id="projects" className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
           <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right lg:-mb-16 sm:mb-0 mt-6 md:mt-16 xl:mt-0 font-medium">
@@ -54,26 +83,24 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         </div>
 
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <MotionWrapper
-            variants={slideUp}
-            delay={1.5}
-            className="grid gap-8 md:gap-16 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0"
-          >
+          <div className="grid gap-8 md:gap-16 grid-cols-1 xl:grid-cols-2 pt-16 md:pt-0">
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
+              if (!href) return null
 
               const index = key + 1
-              const offSet = `${index === 2 ? 'pt-0 md:pt-32' : ''} 
-               ${index === 3 ? 'md:-mt-32' : ''}`
+              const offset = `${index === 2 ? 'pt-0 md:pt-32' : ''} ${
+                index === 3 ? 'md:-mt-32' : ''
+              }`
 
-              if (!href) {
-                return null
-              }
               return (
                 <Link
                   key={key}
                   href={href}
-                  className={offSet}
+                  className={offset}
+                  ref={(el) => {
+                    if (el) projectRefs.current[key] = el
+                  }}
                   data-sanity={encodeDataAttribute?.([
                     'showcaseProjects',
                     key,
@@ -84,7 +111,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                 </Link>
               )
             })}
-          </MotionWrapper>
+          </div>
         )}
       </div>
 

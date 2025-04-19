@@ -11,11 +11,9 @@ export default function SplitTextOnScroll({
   children,
   delay = 0,
   duration = 1,
-  y = 40,
+  y = 20,
   triggerOffset = 'top 80%',
   className = '',
-  type = 'lines', // can be 'words' or 'chars' too
-  tag = 'div', // optional wrapper tag
 }) {
   const ref = useRef(null)
   const splitRef = useRef(null)
@@ -24,45 +22,52 @@ export default function SplitTextOnScroll({
     const element = ref.current
     if (!element) return
 
-    // Clean up on re-renders or unmount
+    // Cleanup before creating a new split
     if (splitRef.current) {
       splitRef.current.revert()
     }
 
-    // Split the text into lines/words/chars
+    // Correct usage here
     splitRef.current = new SplitText(element, {
-      type,
-      linesClass: 'overflow-hidden', // or any class you need
+      type: 'lines',
+      tag: 'span',
+      linesClass: 'textClip',
     })
 
-    // Animate the individual lines/words/chars
-    gsap.from(splitRef.current[type], {
-      y,
-      opacity: 0,
-      duration,
-      delay,
-      ease: 'power3.out',
-      stagger: 0.1,
-      scrollTrigger: {
-        trigger: element,
-        start: triggerOffset,
-        once: true,
+    // Animate each line
+    gsap.fromTo(
+      splitRef.current.lines,
+      {
+        clipPath: 'inset(0% 0% 50% 0%)',
+        opacity: 0,
+        y: 40,
       },
-    })
+      {
+        opacity: 1,
+        y: 0,
+        clipPath: 'inset(0% 0% 0% 0%)',
+        duration,
+        delay,
+        ease: 'power3.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: element,
+          start: triggerOffset,
+          once: true,
+        },
+      },
+    )
 
-    // Cleanup
     return () => {
       if (splitRef.current) {
         splitRef.current.revert()
       }
     }
-  }, [delay, duration, y, triggerOffset, type])
-
-  const Tag = tag
+  }, [delay, duration, y, triggerOffset])
 
   return (
-    <Tag ref={ref} className={className}>
+    <div ref={ref} className={className}>
       {children}
-    </Tag>
+    </div>
   )
 }

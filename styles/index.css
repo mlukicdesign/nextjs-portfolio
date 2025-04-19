@@ -77,3 +77,8 @@ ol {
   display: flex;
   animation: marquee 15s linear infinite; /* Adjust the time for faster/slower autoplay */
 }
+
+.textClip {
+  clip-path: inset(0% 10px 10px);
+  overflow: hidden;
+}
