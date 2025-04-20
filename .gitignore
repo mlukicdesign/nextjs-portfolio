@@ -5,7 +5,6 @@
 /studio/node_modules
 /.pnp
 .pnp.js
-.npmrc
 
 # testing
 /coverage
