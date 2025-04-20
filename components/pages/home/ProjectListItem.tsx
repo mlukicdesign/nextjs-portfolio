@@ -1,7 +1,8 @@
 import ImageBox from '@/components/shared/ImageBox'
 import type { ShowcaseProject } from '@/types'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 import FadeInOnScroll from '@/utils/FadeInOnScroll'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 
 interface ProjectProps {
   project: ShowcaseProject
@@ -34,12 +35,12 @@ function TextBox({ project }: { project: ShowcaseProject }) {
   return (
     <div className="flex flex-wrap justify-between mt-4 mb-2 w-full text-lg md:text-2xl flex-stretch">
       {/* Title */}
-      <SplitLines
+      <SplitLinesParagraph
         delay={0.2}
         className="font-arbeit flex underline ~text-xs/4xl mb-8"
       >
         {project.title}
-      </SplitLines>
+      </SplitLinesParagraph>
       <FadeInOnScroll delay={0.4} className="flex">
         {/* Tags */}
         {Array.isArray(project.tags) && (

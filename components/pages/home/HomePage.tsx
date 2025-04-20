@@ -16,7 +16,7 @@ import HomeExplorations from './HomeExplorations'
 import { HomeIntro } from './HomeIntro'
 import HomeSlider from './HomeSlider'
 import HomeTech from './HomeTech'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -78,10 +78,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       {/* Projects section */}
       <div id="projects" className="fluid-container-x bg-void">
         <div className="w-full flex justify-end mb-8 xl:mb-0">
-          <h2 className="text-ion-500 ~text-3xl/6xl text-right lg:-mb-16 sm:mb-0 mt-6 md:mt-16 xl:mt-0 font-medium">
-            <SplitLines>
-              A Collection <br /> of Recent Works
-            </SplitLines>
+          <h2 className="text-ion-200 ~text-4xl/6xl text-right lg:-mb-16 -mb-8 sm:mb-0 mt-6 md:mt-16 xl:mt-0 font-medium">
+            <SplitLines>A Collection of</SplitLines>
+            <SplitLines>Recent Works</SplitLines>
           </h2>
         </div>
 

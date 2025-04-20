@@ -6,7 +6,8 @@ import { cubicBezier } from 'framer-motion'
 import Button from '@/components/shared/IconButton'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { slideUp } from '@/utils/animationStyles'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 
 interface FooterProps {
   data: SettingsPayload
@@ -53,13 +54,13 @@ export default function Footer(props: FooterProps) {
 
           {/* Left Column */}
           <div className="flex flex-col gap-4">
-            <SplitLines className="text-white font-arbeit text-2xl pt-4">
+            <SplitLinesParagraph className="text-white font-arbeit text-2xl pt-4">
               How you do <span className="text-[#1D3BFF]">something,</span>{' '}
               <br></br>is how you do{' '}
               <span className="text-[#A4E3FE]">everything</span>
-            </SplitLines>
+            </SplitLinesParagraph>
 
-            <div className="text-sm text-gray-500 font-arbeit max-w-[280px] text-balance">
+            <div className="text-sm text-gray-400 font-arbeit max-w-[280px] text-balance">
               All projects displayed on this portfolio are for demonstration
               purposes only. Ownership and rights remain with the respective
               clients and agencies.

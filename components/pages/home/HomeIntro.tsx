@@ -9,7 +9,8 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import Button from '@/components/shared/IconButton'
 import FadeInOnScroll from '@/utils/FadeInOnScroll'
 import SplitTextOnScroll from '@/utils/SplitWordsScroll'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLinesHeading from '@/utils/SplitLineHeadings'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 // Removed unused imports: MotionWrapper and fadeIn
 
 // Register plugins
@@ -25,21 +26,21 @@ export function HomeIntro(props) {
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
-        <SplitLines
+        <SplitLinesHeading
           delay={0.3}
-          className="~text-4xl/7xl text-pretty font-arbeit xl:w-3/4 w-full font-medium text-ion-500"
+          className="~text-4xl/7xl text-balance font-arbeit xl:w-3/4 w-full text-ion-200 transition-all duration-300 ease-in-out pb-6"
         >
           {description.introHeading}
-        </SplitLines>
+        </SplitLinesHeading>
 
         <div className="w-full items-end justify-end flex flex-col">
           <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
-            <SplitLines
+            <SplitLinesParagraph
               delay={0.4}
-              className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 !leading-relaxed w-full"
+              className="font-arbeit text-pretty ~text-lg/2xl !text-slate-200 !leading-relaxed w-full "
             >
               {description.introParagraph}
-            </SplitLines>
+            </SplitLinesParagraph>
             <Button buttonText="Read More" link="/about" />
           </div>
         </div>

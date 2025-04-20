@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { fadeIn, slideUp } from '@/utils/animationStyles'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 
 export default function HomeContact() {
   const [loading, setLoading] = useState(false)
@@ -38,7 +38,7 @@ export default function HomeContact() {
     <div id="contact-form" className="radial-gradient w-screen">
       <div className="fluid-container flex flex-col justify-center items-center mx-auto">
         <h2 className="w-full">
-          <SplitLines className="md:w-2/3 w-full text-ion-500 ~text-3xl/5xl font-arbeit text-balance font-medium">
+          <SplitLines className="md:w-2/3 w-full text-ion-200 ~text-3xl/5xl font-arbeit text-balance font-medium pb-8">
             Questions, musings, or feedback? I’m all ears (and emails).
           </SplitLines>
         </h2>

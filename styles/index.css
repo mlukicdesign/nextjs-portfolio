@@ -51,13 +51,20 @@ ol {
 
 
 .text-gradient {
-  background-image: linear-gradient(90deg, #a4e3fe 0%, #1d3bff 100%);
+  background-image: linear-gradient(90deg, #a4e3fe 50%, #1d3bff 100%);
+  background-position: 100% 0;
+  background-size: 200%;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  padding-bottom: 20px; /* Adjust as needed */
+  -webkit-background-clip: text; /* Adjust as needed */
   font-family: 'Arbeit', sans-serif;
+  transition: all 0.4s ease-in-out;
+  animation-fill-mode: both; /* ← fixes the flash */
 }
+
+
 
 /* For logo carousel */
 .carousel-gradient {

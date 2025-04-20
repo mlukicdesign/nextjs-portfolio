@@ -8,6 +8,9 @@ import type { ProjectPayload, HomePagePayload } from '@/types'
 import Button from '@/components/shared/IconButton'
 
 import SplitWords from '@/utils/SplitWordsScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
+import FadeInOnScroll from '@/utils/FadeInOnScroll'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -16,6 +19,8 @@ export interface ProjectPageProps {
 }
 
 export const getTagStyle = (tag: string): string => {
+  // Define base styles for all tag
+
   const baseStyle =
     'text-arbeit px-6 py-3 rounded-full text-sm font-medium mx-1 border border-slate-900'
 
@@ -55,6 +60,8 @@ export function ProjectPage({
   const prevProject = projects[currentProjectIndex - 1] || null
   const nextProject = projects[currentProjectIndex + 1] || null
 
+  console.log(overview)
+
   return (
     <div>
       {/* Header */}
@@ -72,7 +79,7 @@ export function ProjectPage({
         <div className="w-full mx-auto flex flex-wrap justify-between flex-col md:flex-row fluid-container">
           {/* Info col */}
           <div className="flex flex-col gap-6 w-full md:w-1/3">
-            <div>
+            <FadeInOnScroll>
               <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 YEAR COMPLETED
               </span>
@@ -82,9 +89,9 @@ export function ProjectPage({
                   <div className="md:mt-2 text-lg md:text-2xl">{year}</div>
                 )}
               </div>
-            </div>
+            </FadeInOnScroll>
             {/* Tags */}
-            <div>
+            <FadeInOnScroll>
               <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 SOLUTION & SERVICES
               </span>
@@ -99,8 +106,8 @@ export function ProjectPage({
                   </div>
                 )}
               </div>
-            </div>
-            <div>
+            </FadeInOnScroll>
+            <FadeInOnScroll>
               <span className="text-sm text-slate-500 tracking-widest capitalize font-medium">
                 VIEW FULL SITE
               </span>
@@ -110,15 +117,14 @@ export function ProjectPage({
                   <Button buttonText="View full website" link={site?.url} />
                 )}
               </div>
-            </div>
+            </FadeInOnScroll>
           </div>
           <div className="w-full lg:w-2/4">
             {/* Overview */}
-            {overview && (
-              <div className="mt-4 ~text-lg/3xl text-balance text-slate-200 !leading-relaxed">
-                <CustomPortableText value={overview} />
-              </div>
-            )}
+
+            <SplitLinesParagraph className="mt-4 ~text-lg/3xl text-balance text-slate-200 !leading-relaxed">
+              {overview}
+            </SplitLinesParagraph>
           </div>
         </div>
 

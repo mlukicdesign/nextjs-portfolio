@@ -45,29 +45,7 @@ export default defineType({
       description:
         'Used both for project subheader, and the <meta> description tag for SEO.',
       title: 'Overview',
-      type: 'array',
-      of: [
-        // Paragraphs
-        defineArrayMember({
-          lists: [],
-          marks: {
-            annotations: [],
-            decorators: [
-              {
-                title: 'Italic',
-                value: 'em',
-              },
-              {
-                title: 'Strong',
-                value: 'strong',
-              },
-            ],
-          },
-          styles: [],
-          type: 'block',
-        }),
-      ],
-      validation: (rule) => rule.max(155).required(),
+      type: 'text',
     }),
     defineField({
       name: 'year',

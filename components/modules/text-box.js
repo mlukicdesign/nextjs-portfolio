@@ -1,5 +1,5 @@
 import TextBox from '@/components/shared/TextBox'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 
 const Image = ({ data = {} }) => {
   const { description } = data

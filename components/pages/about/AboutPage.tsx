@@ -10,8 +10,10 @@ import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn, slideUp } from '@/utils/animationStyles'
 import HomeContact from '../home/HomeContact'
 
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 import SplitWords from '@/utils/SplitWordsScroll'
+import SplitLinesHeading from '@/utils/SplitLineHeadings'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 
 export interface AboutPageProps {
   data: AboutPayload | null
@@ -30,24 +32,24 @@ export function AboutPage({ data }: AboutPageProps) {
       <div className="md:h-[400px] h-[300px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <SplitLines className="~text-4xl/5xl font-arbeit text-white text-medium uppercase font-medium ">
+            <SplitLinesHeading className="~text-4xl/5xl font-arbeit text-white text-medium uppercase font-medium ">
               {title}
-            </SplitLines>
+            </SplitLinesHeading>
           )}
         </div>
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
-        <SplitLines>
-          <div className="~text-lg/4xl !leading-normal text-balance font-medium font-arbeit justify-center mb-16 text-ion-500">
+        <SplitLinesHeading>
+          <div className="~text-lg/4xl !leading-normal text-balance font-medium font-arbeit justify-center mb-16 text-ion-200">
             {heading}
           </div>
-        </SplitLines>
+        </SplitLinesHeading>
 
         <div>
           {overview && (
-            <SplitLines className="mt-2 ~text-lg/2xl text-gray-300 ml-36 !leading-relaxed text-balance font-arbeit justify-center max-w-[800px]">
+            <SplitLinesParagraph className="mt-2 ~text-lg/2xl text-gray-300 ml-36 !leading-relaxed text-balance font-arbeit justify-center md:max-w-[800px] w-full">
               <CustomPortableText value={overview} />
-            </SplitLines>
+            </SplitLinesParagraph>
           )}
         </div>
 
