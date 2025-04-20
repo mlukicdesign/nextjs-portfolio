@@ -8,7 +8,7 @@ import { SplitText } from 'gsap/SplitText'
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-export default function SplitLines({
+export default function SplitLinesHeading({
   children,
   delay = 0,
   duration = 1,
@@ -54,6 +54,13 @@ export default function SplitLines({
           trigger: element,
           start: triggerOffset,
           once: true,
+          // 👇 Add the callback here
+        },
+
+        onComplete: () => {
+          // Remove all GSAP-applied inline styles
+          gsap.set(splitRef.current.lines, { clearProps: 'all' })
+          element.classList.add('text-gradient')
         },
       },
     )

@@ -6,7 +6,7 @@ import {
 import type { Image } from 'sanity'
 
 import ImageBox from '@/components/shared/ImageBox'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
 
 type AnimatedBlock = {
   _type: 'animatedBlock'

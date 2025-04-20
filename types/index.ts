@@ -61,8 +61,8 @@ export interface HomePagePayload {
 export interface ProjectPayload {
   year?: string
   coverImage?: Image
-  description?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
+  description?: string
+  overview?: string
   site?: {
     urltitle?: string
     url: string

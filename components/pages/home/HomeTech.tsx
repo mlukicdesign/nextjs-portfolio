@@ -4,7 +4,8 @@ import { cubicBezier } from 'framer-motion'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
 import type { HomePagePayload } from '@/types'
-import SplitLines from '@/utils/SplitLinesScroll'
+import SplitLines from '@/utils/SplitLineHeadings'
+import SplitLinesParagraph from '@/utils/SplitLineParagraph'
 
 const easing = cubicBezier(0, 0.55, 0.45, 1)
 
@@ -25,21 +26,18 @@ const HomeTech = ({ techGrid }: HomePagePayload) => {
     <div className="radial-gradient w-screen">
       <div className="fluid-container mx-auto">
         <MotionWrapper variants={fadeIn} delay={1} className="">
-          <h2 className="text-ion-500 ~text-3xl/6xl mb-16 font-arbeit font-medium">
-            <SplitLines>
-              Design, Code, Deliver.
-              <br />
-              Every layer counts.
-            </SplitLines>
+          <h2 className="text-ion-200 ~text-3xl/6xl mb-16 font-arbeit font-medium pb-6">
+            <SplitLines>Design, Code, Deliver.</SplitLines>
+            <SplitLines>Every layer counts.</SplitLines>
           </h2>
         </MotionWrapper>
 
         {/* Design Grid */}
         <div className="mb-16">
           <div className="flex border-b border-neutral-200">
-            <SplitLines className="~text-sm/2xl font-arbeit pb-2 font-medium">
+            <SplitLinesParagraph className="~text-sm/2xl font-arbeit pb-2 font-medium">
               DESIGN
-            </SplitLines>
+            </SplitLinesParagraph>
           </div>
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
@@ -75,12 +73,12 @@ const HomeTech = ({ techGrid }: HomePagePayload) => {
         {/* Development Grid */}
         <div className="mb-16">
           <div className="flex border-b border-neutral-200">
-            <SplitLines
+            <SplitLinesParagraph
               delay={0.2}
               className="~text-sm/2xl font-arbeit pb-2 font-medium"
             >
               DEVELOPMENT
-            </SplitLines>
+            </SplitLinesParagraph>
           </div>
           <div className="flex flex-row">
             <div className="md:w-1/2 hidden md:block"></div>
