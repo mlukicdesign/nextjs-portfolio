@@ -22,41 +22,6 @@ export function HomeIntro(props) {
   const textRef = useRef(null)
   const splitRef = useRef(null)
 
-  useEffect(() => {
-    if (!description?.text || !description?.displayText || !textRef.current)
-      return
-
-    // Split the text
-    splitRef.current = new SplitText(textRef.current, {
-      type: 'lines',
-      tag: 'span',
-      linesClass: '',
-    })
-
-    // GSAP animation with ScrollTrigger
-    gsap.from(splitRef.current.lines, {
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: 'top 80%',
-      },
-      delay: 0.4,
-      opacity: 0,
-      y: 40,
-      stagger: 0.08,
-      duration: 1,
-      ease: 'power2.out',
-    })
-
-    return () => {
-      splitRef.current?.revert()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [description])
-
-  if (!description) {
-    return null
-  }
-
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
