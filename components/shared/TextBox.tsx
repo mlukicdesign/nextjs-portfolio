@@ -13,15 +13,13 @@ export default function Header(props: TextBoxProps) {
     return null
   }
   return (
-    <MotionWrapper variants={slideUp} delay={0.6}>
-      <div className="fluid-container">
-        {/* Description */}
-        {description && (
-          <div className="text-center ~text-lg/3xl text-slate-200 !leading-relaxed text-balance font-arbeit max-w-[1200px] mx-auto">
-            <CustomPortableText value={description} />
-          </div>
-        )}
-      </div>
-    </MotionWrapper>
+    <div className="fluid-container">
+      {/* Description */}
+      {description && (
+        <div className="text-center ~text-lg/3xl text-slate-200 !leading-relaxed text-balance font-arbeit max-w-[1200px] mx-auto">
+          <CustomPortableText value={description} />
+        </div>
+      )}
+    </div>
   )
 }

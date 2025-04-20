@@ -1,8 +1,8 @@
 'use client'
 
-import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import React, { useState } from 'react'
 import { fadeIn, slideUp } from '@/utils/animationStyles'
+import SplitLines from '@/utils/SplitLinesScroll'
 
 export default function HomeContact() {
   const [loading, setLoading] = useState(false)
@@ -37,13 +37,11 @@ export default function HomeContact() {
   return (
     <div id="contact-form" className="radial-gradient w-screen">
       <div className="fluid-container flex flex-col justify-center items-center mx-auto">
-        <div className="w-full">
-          <MotionWrapper variants={slideUp}>
-            <h2 className="md:w-2/3 w-full text-gradient ~text-3xl/5xl font-arbeit text-balance font-medium">
-              Questions, musings, or feedback? I’m all ears (and emails).
-            </h2>
-          </MotionWrapper>
-        </div>
+        <h2 className="w-full">
+          <SplitLines className="md:w-2/3 w-full text-ion-500 ~text-3xl/5xl font-arbeit text-balance font-medium">
+            Questions, musings, or feedback? I’m all ears (and emails).
+          </SplitLines>
+        </h2>
 
         <div className="w-full flex justify-end">
           <form onSubmit={handleSubmit} className="md:w-1/2 w-full">

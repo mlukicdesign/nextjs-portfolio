@@ -1,45 +1,48 @@
 'use client'
 
-import React from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
+import React, { useEffect, useRef } from 'react'
+
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { motion } from 'framer-motion'
-import { MotionWrapper } from '@/components/shared/MotionWrapper'
-import { fadeIn } from '@/utils/animationStyles'
-import { slideUp } from '@/utils/animationStyles'
 import Button from '@/components/shared/IconButton'
+import FadeInOnScroll from '@/utils/FadeInOnScroll'
+import SplitTextOnScroll from '@/utils/SplitWordsScroll'
+import SplitLines from '@/utils/SplitLinesScroll'
+// Removed unused imports: MotionWrapper and fadeIn
 
-
+// Register plugins
+gsap.registerPlugin(SplitText, ScrollTrigger)
 
 export function HomeIntro(props) {
   const { description } = props
-  if (!description) {
-    return null
-  }
+
+  console.log(description)
+  const textRef = useRef(null)
+  const splitRef = useRef(null)
 
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
-        <MotionWrapper
-          variants={slideUp}
-          delay={0.6}
-          className="~text-4xl/7xl text-pretty font-arbeit indent-12 xl:w-3/4 w-full text-gradient font-medium"
+        <SplitLines
+          delay={0.3}
+          className="~text-4xl/7xl text-pretty font-arbeit xl:w-3/4 w-full font-medium text-ion-500"
         >
-          {description.displayText == true && (
-            <CustomPortableText value={description.text} />
-          )}
-        </MotionWrapper>
-        <MotionWrapper
-          variants={fadeIn}
-          delay={1}
-          className="w-full items-end justify-end flex flex-col"
-        >
+          {description.introHeading}
+        </SplitLines>
+
+        <div className="w-full items-end justify-end flex flex-col">
           <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
-            <p className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 leading-relaxed w-full">
+            <SplitLines
+              delay={0.4}
+              className="font-arbeit text-pretty ~text-lg/2xl text-slate-200 !leading-relaxed w-full"
+            >
               {description.introParagraph}
-            </p>
+            </SplitLines>
             <Button buttonText="Read More" link="/about" />
           </div>
-        </MotionWrapper>
+        </div>
       </div>
     </section>
   )

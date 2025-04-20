@@ -5,7 +5,7 @@ export const homePageQuery = groq`
     _id,
     _updatedAt,
     overview{
-      text,
+      introHeading,
       displayText,
       introParagraph,
     },
@@ -73,6 +73,7 @@ export const aboutPageQuery = groq`
   *[_type == "about"][0]{
     _id,
     title,
+    heading,
     customLogo,
     overview,
     aboutImage{

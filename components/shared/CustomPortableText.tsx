@@ -1,38 +1,28 @@
 import {
   PortableText,
-  type PortableTextBlock,
   type PortableTextComponents,
+  type PortableTextBlock,
 } from 'next-sanity'
 import type { Image } from 'sanity'
 
 import ImageBox from '@/components/shared/ImageBox'
+import SplitLines from '@/utils/SplitLinesScroll'
+
+type AnimatedBlock = {
+  _type: 'animatedBlock'
+  _key: string
+  animate?: boolean
+  body: PortableTextBlock
+}
 
 export function CustomPortableText({
   paragraphClasses,
   value,
 }: {
   paragraphClasses?: string
-  value: PortableTextBlock[]
+  value: (PortableTextBlock | AnimatedBlock)[]
 }) {
   const components: PortableTextComponents = {
-    block: {
-      normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
-      },
-    },
-    marks: {
-      link: ({ children, value }) => {
-        return (
-          <a
-            className="underline transition hover:opacity-50"
-            href={value?.href}
-            rel="noreferrer noopener"
-          >
-            {children}
-          </a>
-        )
-      },
-    },
     types: {
       image: ({
         value,
@@ -52,6 +42,41 @@ export function CustomPortableText({
               </div>
             )}
           </div>
+        )
+      },
+
+      // Render animatedBlock manually
+      animatedBlock: ({ value }: { value: AnimatedBlock }) => {
+        const { animate, body } = value
+
+        const renderBlock = (
+          <PortableText
+            value={[body]}
+            components={{
+              block: {
+                normal: ({ children }) => (
+                  <p className={paragraphClasses}>{children}</p>
+                ),
+              },
+              marks: {
+                link: ({ children, value }) => (
+                  <a
+                    className="underline transition hover:opacity-50"
+                    href={value?.href}
+                    rel="noreferrer noopener"
+                  >
+                    {children}
+                  </a>
+                ),
+              },
+            }}
+          />
+        )
+
+        return animate ? (
+          <SplitLines className={paragraphClasses}>{renderBlock}</SplitLines>
+        ) : (
+          renderBlock
         )
       },
     },

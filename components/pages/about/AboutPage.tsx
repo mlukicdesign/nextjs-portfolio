@@ -10,6 +10,9 @@ import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn, slideUp } from '@/utils/animationStyles'
 import HomeContact from '../home/HomeContact'
 
+import SplitLines from '@/utils/SplitLinesScroll'
+import SplitWords from '@/utils/SplitWordsScroll'
+
 export interface AboutPageProps {
   data: AboutPayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
@@ -17,31 +20,37 @@ export interface AboutPageProps {
 
 export function AboutPage({ data }: AboutPageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { title, overview, aboutImage, aboutLinks } = data ?? {}
+  const { title, heading, overview, aboutImage, aboutLinks } = data ?? {}
+
+  console.log(heading)
 
   return (
     <div>
       {/* Header */}
-      <div className="md:h-[400px] h-[300px] bg-red-500 flex flex-col justify-end radial-gradient">
+      <div className="md:h-[400px] h-[300px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <div className="~text-4xl/5xl font-arbeit text-white font-medium uppercase">
+            <SplitLines className="~text-4xl/5xl font-arbeit text-white text-medium uppercase font-medium ">
               {title}
-            </div>
+            </SplitLines>
           )}
         </div>
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
-        {/* Title
-        <div>{title && title}</div> */}
+        <SplitLines>
+          <div className="~text-lg/4xl !leading-normal text-balance font-medium font-arbeit justify-center mb-16 text-ion-500">
+            {heading}
+          </div>
+        </SplitLines>
 
-        <MotionWrapper variants={slideUp} delay={0.6}>
+        <div>
           {overview && (
-            <div className="mt-2 ~text-lg/3xl text-gray-300 !leading-relaxed text-balance font-arbeit justify-center max-w-[800px] ">
+            <SplitLines className="mt-2 ~text-lg/2xl text-gray-300 ml-36 !leading-relaxed text-balance font-arbeit justify-center max-w-[800px]">
               <CustomPortableText value={overview} />
-            </div>
+            </SplitLines>
           )}
-        </MotionWrapper>
+        </div>
+
         <div className="mt-10 flex flex-col">
           {/* Links */}
           {aboutLinks &&

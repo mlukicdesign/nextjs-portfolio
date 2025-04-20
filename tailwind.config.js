@@ -37,6 +37,7 @@ module.exports = {
         void: '#010C13',
         'neutral-grey': '#F0F9FF',
         'ion-400': '#1ABCFE',
+        'ion-500': '#5A87FE',
         'ion-950': '#06304B',
         'ion-900': '#094D7',
         'ion-800': '#035C89',
