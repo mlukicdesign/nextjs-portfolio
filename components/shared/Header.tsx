@@ -71,11 +71,7 @@ export function Header(props: HeaderProps) {
         </div>
         {/* Gradient overlay */}
 
-        <MotionWrapper
-          variants={fadeIn}
-          delay={0}
-          className="h-full w-full absolute top-0 -z-30"
-        >
+        <div className="h-full w-full absolute top-0 -z-30">
           <div className="absolute z-10 top-0 left-0 w-full h-full radial-gradient"></div>
           {/* Background video */}
           <video
@@ -86,7 +82,7 @@ export function Header(props: HeaderProps) {
             playsInline
             className="fixed h-full w-full object-cover radial-gradient"
           />
-        </MotionWrapper>
+        </div>
       </div>
     </>
   )

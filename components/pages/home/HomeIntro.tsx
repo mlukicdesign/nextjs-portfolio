@@ -17,6 +17,8 @@ gsap.registerPlugin(SplitText, ScrollTrigger)
 
 export function HomeIntro(props) {
   const { description } = props
+
+  console.log(description)
   const textRef = useRef(null)
   const splitRef = useRef(null)
 
@@ -58,14 +60,12 @@ export function HomeIntro(props) {
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
       <div className="fluid-container flex flex-col mx-auto gap-12">
-        <FadeInOnScroll
+        <SplitLines
           delay={0.3}
-          className="~text-4xl/7xl text-pretty font-arbeit xl:w-3/4 w-full font-medium text-gradient"
+          className="~text-4xl/7xl text-pretty font-arbeit xl:w-3/4 w-full font-medium text-ion-500"
         >
-          {description.displayText === true && (
-            <CustomPortableText value={description.text} />
-          )}
-        </FadeInOnScroll>
+          {description.introHeading}
+        </SplitLines>
 
         <div className="w-full items-end justify-end flex flex-col">
           <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">

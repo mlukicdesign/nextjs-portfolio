@@ -49,12 +49,12 @@ ol {
     linear-gradient(177deg, rgba(1, 12, 19, 0) 27.27%, #010c13 87.19%);
 }
 
+
 .text-gradient {
   background-image: linear-gradient(90deg, #a4e3fe 0%, #1d3bff 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  display: inline-block;
   padding-bottom: 20px; /* Adjust as needed */
   font-family: 'Arbeit', sans-serif;
 }

@@ -5,6 +5,7 @@ import { useScroll, useTransform, motion } from 'framer-motion'
 import Image from 'next/image'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { fadeIn } from '@/utils/animationStyles'
+import SplitLines from '@/utils/SplitLinesScroll'
 
 interface ProjectImage {
   _key: string
@@ -70,15 +71,11 @@ export default function HomeSlider({
       {/* Title Section */}
       {sliderTitle && (
         <div className="h-[150px] overflow-hidden">
-          <MotionWrapper
-            variants={fadeIn}
-            delay={1}
-            className="!pb-64 text-center max-w-[800px] mx-auto"
-          >
-            <h2 className="text-gradient font-arbiet font-medium ~text-4xl/6xl">
-              {sliderTitle}
+          <div className="!pb-64 text-center max-w-[800px] mx-auto">
+            <h2 className="text-ion-500 font-arbiet font-medium ~text-4xl/6xl">
+              <SplitLines>{sliderTitle}</SplitLines>
             </h2>
-          </MotionWrapper>
+          </div>
         </div>
       )}
 

@@ -5,7 +5,7 @@ export const homePageQuery = groq`
     _id,
     _updatedAt,
     overview{
-      text,
+      introHeading,
       displayText,
       introParagraph,
     },

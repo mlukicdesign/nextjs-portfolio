@@ -37,14 +37,14 @@ export default function SplitLines({
     gsap.fromTo(
       splitRef.current.lines,
       {
-        clipPath: 'inset(0% 0% 50% 0%)',
+        clipPath: 'inset(0% 0% 80% 0%)',
         opacity: 0,
         y: 40,
       },
       {
         opacity: 1,
         y: 0,
-        clipPath: 'inset(0% 0% 0% 0%)',
+        clipPath: 'inset(0% 0% -50% 0%)',
         duration,
         delay,
         ease: 'power3.out',

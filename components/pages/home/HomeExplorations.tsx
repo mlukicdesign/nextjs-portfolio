@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { MotionWrapper } from '@/components/shared/MotionWrapper'
 import { slideUp } from '@/utils/animationStyles'
 import Button from '@/components/shared/IconButton'
+import SplitLines from '@/utils/SplitLinesScroll'
 
 interface LoopCarouselProps {
   explorationCarousel?: { url: string; _key: string }[]
@@ -83,14 +84,16 @@ export default function HomeExplorations({
           delay={0.6}
           className="md:w-1/2 w-full"
         >
-          <h2 className="text-gradient ~text-3xl/6xl underline underline-offset-8 text-right font-arbeit font-medium mb-8">
-            Explorations
+          <h2 className="text-ion-500 ~text-3xl/6xl underline-offset-8 font-arbeit font-medium mb-8">
+            <SplitLines>Explorations</SplitLines>
           </h2>
-          <p className="text-balance ~text-lg/xl font-arbeit !mb-8">
+
+          <SplitLines className="text-balance ~text-lg/xl font-arbeit !mb-8">
             Intrigue and passion drive a passion for learning. Here are a few
             tools & technologies I’m currently, learning, experimenting, or even
             breaking.
-          </p>
+          </SplitLines>
+
           <Button
             buttonText="View my Github"
             link="https://github.com/mlukicdesign"

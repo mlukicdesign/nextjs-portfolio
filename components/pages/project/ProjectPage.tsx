@@ -7,6 +7,8 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import type { ProjectPayload, HomePagePayload } from '@/types'
 import Button from '@/components/shared/IconButton'
 
+import SplitWords from '@/utils/SplitWordsScroll'
+
 export interface ProjectPageProps {
   data: ProjectPayload | null
   moreProjects: HomePagePayload | null

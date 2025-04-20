@@ -30,7 +30,7 @@ export function AboutPage({ data }: AboutPageProps) {
       <div className="md:h-[400px] h-[300px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <SplitLines className="~text-4xl/5xl font-arbeit text-white font-medium uppercase">
+            <SplitLines className="~text-4xl/5xl font-arbeit text-white text-medium uppercase font-medium ">
               {title}
             </SplitLines>
           )}
@@ -38,7 +38,7 @@ export function AboutPage({ data }: AboutPageProps) {
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
         <SplitLines>
-          <div className="~text-lg/4xl !leading-relaxed text-balance font-arbeit justify-center mb-16">
+          <div className="~text-lg/4xl !leading-normal text-balance font-medium font-arbeit justify-center mb-16 text-ion-500">
             {heading}
           </div>
         </SplitLines>
