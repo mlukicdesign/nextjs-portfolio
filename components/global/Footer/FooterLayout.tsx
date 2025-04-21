@@ -54,11 +54,11 @@ export default function Footer(props: FooterProps) {
 
           {/* Left Column */}
           <div className="flex flex-col gap-4">
-            <SplitLinesParagraph className="text-white font-arbeit text-2xl pt-4">
+            <div className="text-white font-arbeit text-2xl pt-4">
               How you do <span className="text-[#1D3BFF]">something,</span>{' '}
               <br></br>is how you do{' '}
               <span className="text-[#A4E3FE]">everything</span>
-            </SplitLinesParagraph>
+            </div>
 
             <div className="text-sm text-gray-400 font-arbeit max-w-[280px] text-balance">
               All projects displayed on this portfolio are for demonstration

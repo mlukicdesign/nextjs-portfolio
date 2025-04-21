@@ -40,14 +40,14 @@ export function AboutPage({ data }: AboutPageProps) {
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
         <SplitLinesHeading>
-          <div className="~text-lg/4xl !leading-normal text-balance font-medium font-arbeit justify-center mb-16 text-ion-200">
+          <div className="~text-3xl/4xl !leading-normal text-balance font-medium font-arbeit justify-center lg:mb-16 mb-8 text-ion-200">
             {heading}
           </div>
         </SplitLinesHeading>
 
         <div>
           {overview && (
-            <SplitLinesParagraph className="mt-2 ~text-lg/2xl text-gray-300 ml-36 !leading-relaxed text-balance font-arbeit justify-center md:max-w-[800px] w-full">
+            <SplitLinesParagraph className="mt-2 ~text-lg/2xl text-gray-300 lg:ml-64 !leading-relaxed text-balance font-arbeit justify-center md:max-w-[800px] w-full">
               <CustomPortableText value={overview} />
             </SplitLinesParagraph>
           )}

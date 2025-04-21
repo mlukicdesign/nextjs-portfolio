@@ -25,19 +25,19 @@ export function HomeIntro(props) {
 
   return (
     <section className="flex xl:min-h-[800px] bg-void mx-auto">
-      <div className="fluid-container flex flex-col mx-auto gap-12">
+      <div className="fluid-container flex flex-col mx-auto gap-8">
         <SplitLinesHeading
           delay={0.3}
-          className="~text-4xl/7xl text-balance font-arbeit xl:w-3/4 w-full text-ion-200 transition-all duration-300 ease-in-out pb-6"
+          className="~text-4xl/7xl font-arbeit xl:w-3/4 w-full text-ion-200 font-medium lg:pb-12 pb-2 text-pretty"
         >
           {description.introHeading}
         </SplitLinesHeading>
 
-        <div className="w-full items-end justify-end flex flex-col">
+        <div className="w-full items-end lg:justify-end flex flex-col">
           <div className="flex flex-col max-w-[800px] lg:w-1/2 gap-8">
             <SplitLinesParagraph
               delay={0.4}
-              className="font-arbeit text-pretty ~text-lg/2xl !text-slate-200 !leading-relaxed w-full "
+              className="font-arbeit ~text-lg/2xl !text-slate-200 !leading-relaxed w-full text-pretty"
             >
               {description.introParagraph}
             </SplitLinesParagraph>
