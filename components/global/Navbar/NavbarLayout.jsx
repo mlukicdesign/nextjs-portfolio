@@ -7,23 +7,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import { HeaderLinks } from '@/components/shared/HeaderLinks'
 import { resolveHref, urlForLogo } from '@/sanity/lib/utils'
-import type { LinkItem, PageItem, SettingsPayload } from '@/types'
+
 import Button from '@/components/shared/IconButton'
 
-interface NavbarProps {
-  data: SettingsPayload
-  title: string | null
-  logo: any | null
-}
 
-export default function Navbar(props: NavbarProps) {
+export default function Navbar(props) {
   const { data } = props
   const title = props.title ?? ''
   const video = data?.internalVideo
 
   const menuItems = data?.menuItems ?? {}
-  const menuPages = menuItems?.page || ([] as PageItem[])
-  const menuLinks = menuItems?.link || ([] as LinkItem[])
+  const menuPages = menuItems?.page || [] 
+  const menuLinks = menuItems?.link || []
 
   const customLogo = props?.logo
   const logoImageUrl = customLogo && urlForLogo(customLogo)?.url()
