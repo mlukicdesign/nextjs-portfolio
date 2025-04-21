@@ -37,7 +37,7 @@ function TextBox({ project }: { project: ShowcaseProject }) {
       {/* Title */}
       <SplitLinesParagraph
         delay={0.2}
-        className="font-arbeit flex underline ~text-xs/4xl mb-8"
+        className="font-arbeit flex ~text-xs/4xl mb-8"
       >
         {project.title}
       </SplitLinesParagraph>

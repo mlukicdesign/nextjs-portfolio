@@ -38,7 +38,7 @@ export default function HomeContact() {
     <div id="contact-form" className="radial-gradient w-screen">
       <div className="fluid-container flex flex-col justify-center items-center mx-auto">
         <h2 className="w-full">
-          <SplitLines className="md:w-2/3 w-full text-ion-200 ~text-3xl/5xl font-arbeit text-balance font-medium pb-8">
+          <SplitLines className="lg:w-1/2 w-full text-ion-200 ~text-3xl/5xl font-arbeit font-medium mb-12 text-pretty">
             Questions, musings, or feedback? I’m all ears (and emails).
           </SplitLines>
         </h2>
