@@ -85,11 +85,11 @@ export default function HomeExplorations({
           delay={0.6}
           className="md:w-1/2 w-full"
         >
-          <h2 className="text-ion-200 ~text-4xl/6xl underline-offset-8 font-arbeit font-medium mb-8">
-            <SplitLines>Explorations</SplitLines>
-          </h2>
+          <SplitLines className="text-ion-200 text-4xl lg:text-6xl font-arbeit font-medium mb-8 leading-loose pb-2">
+            Explorations
+          </SplitLines>
 
-          <SplitLinesParagraph className="~text-lg/xl font-arbeit !mb-8 text-pretty">
+          <SplitLinesParagraph className="text-lg font-arbeit !mb-8">
             Intrigue and passion drive a passion for learning. Here are a few
             tools & technologies I’m currently, learning, experimenting, or even
             breaking.

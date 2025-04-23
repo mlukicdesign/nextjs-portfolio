@@ -26,9 +26,9 @@ const HomeTech = ({ techGrid }: HomePagePayload) => {
     <div className="radial-gradient w-screen">
       <div className="fluid-container mx-auto">
         <MotionWrapper variants={fadeIn} delay={1} className="">
-          <h2 className="text-ion-200 ~text-4xl/6xl mb-8 font-arbeit font-medium pb-6">
-            <SplitLines>Design, Code, Deliver.</SplitLines>
-            <SplitLines>Every layer counts.</SplitLines>
+          <h2 className="text-ion-200 text-4xl lg:text-6xl mb-8 font-arbeit font-medium pb-6">
+            <SplitLines className="pb-2">Design, Code, Deliver.</SplitLines>
+            <SplitLines className="pb-2">Every layer counts.</SplitLines>
           </h2>
         </MotionWrapper>
 

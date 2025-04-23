@@ -13,7 +13,7 @@ export default function SplitLinesParagraph({
   delay = 0,
   duration = 0.8,
   y = 20,
-  triggerOffset = 'top 80%',
+  triggerOffset = 'top 85%',
   className = '',
 }) {
   const ref = useRef(null)

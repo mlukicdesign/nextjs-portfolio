@@ -13,7 +13,7 @@ export default function SplitLinesHeading({
   delay = 0,
   duration = 1,
   y = 20,
-  triggerOffset = 'top 80%',
+  triggerOffset = 'top 85%',
   className = '',
 }) {
   const ref = useRef(null)

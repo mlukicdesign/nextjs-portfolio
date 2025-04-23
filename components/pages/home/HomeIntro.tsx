@@ -18,8 +18,6 @@ gsap.registerPlugin(SplitText, ScrollTrigger)
 
 export function HomeIntro(props) {
   const { description } = props
-
-  console.log(description)
   const textRef = useRef(null)
   const splitRef = useRef(null)
 
@@ -28,7 +26,7 @@ export function HomeIntro(props) {
       <div className="fluid-container flex flex-col mx-auto gap-8">
         <SplitLinesHeading
           delay={0.3}
-          className="~text-4xl/7xl font-arbeit xl:w-3/4 w-full text-ion-200 font-medium lg:pb-12 pb-2 text-pretty"
+          className="text-4xl lg:text-7xl font-arbeit xl:w-3/4 w-full text-ion-200 font-medium lg:pb-12 pb-2 text-pretty"
         >
           {description.introHeading}
         </SplitLinesHeading>

@@ -60,8 +60,6 @@ export function ProjectPage({
   const prevProject = projects[currentProjectIndex - 1] || null
   const nextProject = projects[currentProjectIndex + 1] || null
 
-  console.log(overview)
-
   return (
     <div>
       {/* Header */}

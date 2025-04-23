@@ -24,15 +24,13 @@ export function AboutPage({ data }: AboutPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { title, heading, overview, aboutImage, aboutLinks } = data ?? {}
 
-  console.log(heading)
-
   return (
     <div>
       {/* Header */}
       <div className="md:h-[400px] h-[300px] flex flex-col justify-end radial-gradient">
         <div className="fluid-container">
           {title && (
-            <SplitLinesHeading className="~text-4xl/5xl font-arbeit text-white text-medium uppercase font-medium ">
+            <SplitLinesHeading className="text-4xl lg:text-5xl font-arbeit !text-white text-medium uppercase font-medium">
               {title}
             </SplitLinesHeading>
           )}
@@ -40,7 +38,7 @@ export function AboutPage({ data }: AboutPageProps) {
       </div>
       <div className="~px-6/64 ~py-6/24 mx-auto flex flex-col justify-center items-center bg-void w-full">
         <SplitLinesHeading>
-          <div className="~text-3xl/4xl !leading-normal text-balance font-medium font-arbeit justify-center lg:mb-16 mb-8 text-ion-200">
+          <div className="text-3xl lg:text-4xl !leading-normal text-balance font-medium font-arbeit justify-center lg:mb-16 mb-8 text-ion-200">
             {heading}
           </div>
         </SplitLinesHeading>

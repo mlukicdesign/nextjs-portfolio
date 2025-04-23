@@ -29,7 +29,7 @@ module.exports = {
         arbeit: ['Arbeit', 'sans-serif'],
       },
       fontSize: {
-        fluid: 'clamp(4rem, 10vw, 20rem)', // Scales between 1rem (16px) and 4rem (64px) based on viewport width
+        // Scales between 1rem (16px) and 4rem (64px) based on viewport width
       },
       colors: {
         primary: withOpacity('--color-primary'),

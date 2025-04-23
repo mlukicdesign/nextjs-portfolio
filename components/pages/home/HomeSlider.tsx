@@ -72,8 +72,8 @@ export default function HomeSlider({
       {sliderTitle && (
         <div className="h-[150px] overflow-hidden">
           <div className="lg:!pb-64 text-center max-w-[800px] mx-auto">
-            <h2 className="text-ion-200 font-arbiet font-medium ~text-4xl/6xl pb-6">
-              <SplitLines>{sliderTitle}</SplitLines>
+            <h2 className="text-ion-200 font-arbiet font-medium text-4xl lg:text-6xl lg:pb-12 pb-6">
+              <SplitLines className="pb-12">{sliderTitle}</SplitLines>
             </h2>
           </div>
         </div>
