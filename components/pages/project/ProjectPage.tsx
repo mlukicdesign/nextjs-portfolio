@@ -120,7 +120,7 @@ export function ProjectPage({
           <div className="w-full lg:w-2/4">
             {/* Overview */}
 
-            <SplitLinesParagraph className="mt-4 ~text-lg/3xl text-balance text-slate-200 !leading-relaxed">
+            <SplitLinesParagraph className="mt-4 ~text-lg/3xl text-slate-200 !leading-relaxed">
               {overview}
             </SplitLinesParagraph>
           </div>
