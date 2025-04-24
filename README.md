@@ -1,4 +1,5 @@
-<p align="center">
+<h1>Next Portfolio</h1>
+<p>
   <strong>Portfolio Website built with Next JS </strong>
   <strong>Headless CMS powered by <a href="https://sanity.io">Sanity.io</a></strong><br />
   <strong>Animations with GSAP animation library</strong>
@@ -11,7 +12,7 @@
 
 Base structure and Sanity fetching logic is based on [template-nextjs-personal-website](https://github.com/sanity-io/template-nextjs-personal-website). This is a great starter template by Sanity which is highly influenced this template.
 
-### Designed and developed
+### Original boilerplate from:
 
 - [@danil-vladimirov](https://github.com/danil-vladimirov)
 
